@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bauhaus 2017[금전출납장부 보고]</title>
+
+    <!-- 부트스트랩 -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!--<link href="/css/style.min.css" rel="stylesheet">-->
+    <link href="../../css/style.css" rel="stylesheet"  media="screen">
+</head>
+<body>
+
+<div class="payment_page panel panel-default">
+
+    <div class="report_page_head btn_group">
+        <div class="btn-group btn-group-lg" role="group">
+            <button type="button" class="btn btn-default btn-xs" id="btn_dayReport">일일보고</button>
+            <button type="button" class="btn btn-default btn-xs" id="btn_weekReport">주간보고</button>
+            <button type="button" class="btn btn-default btn-xs" id="btn_monthReport">월간보고</button>
+        </div>
+    </div>
+    <div class="report_page_body">
+        <div class="report_term" id="report_term">보고기간 : </div>
+        <div class="report_txt income">
+            수입
+            <span id="lbl_income_sum"></span>
+            <span id="lbl_income_sum_num"></span>
+        </div>
+        <div class="list_income">
+
+            <table class="table table-condensed income" id="income_table">
+                <tbody>
+
+                    <!-- 데이터 -->
+
+                </tbody>
+            </table>
+
+
+        </div>
+        <div class="report_txt expenditure">
+            지출
+            <span id="lbl_outcome_sum"></span>
+            <span id="lbl_outcome_sum_num"></span>
+        </div>
+        <div class="list_outcome">
+
+            <table class="table table-condensed expenditure" id="outcome_table">
+                <tbody>
+
+                <!-- 데이터 -->
+
+                </tbody>
+            </table>
+
+
+        </div>
+
+        <div class="report_txt ">
+            수강료
+            <span id="lbl_tuition_sum"></span>
+            <span id="lbl_tuition_sum_num"></span>
+        </div>
+        <div class="list_tuition">
+
+            <table class="table table-condensed tuition" id="tuition_table">
+                <tbody>
+
+                <!-- 데이터 -->
+
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+
+</div>
+
+<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<!--<script src="/js/_static.min.js"></script>-->
+<!--<script src="/js/_common_util.min.js"></script>-->
+<!--<script src="/js/_DB_query.min.js"></script>-->
+<!--<script src="/js/account_report.min.js"></script>-->
+
+
+<script>
+
+    $(function(){
+
+        //account_report._init();
+        windows_resize();
+
+    });
+
+    $(window).resize(function() {
+
+        //console.log(win_height);
+        windows_resize();
+
+    });
+
+    function windows_resize() {
+        var win_width = $(window).width();
+        var win_height = $(window).height();
+
+        $('#report').css('height', win_height-10);
+
+        //$('#income_table tbody').css('width', win_height);
+
+        var th_width = win_width - 20;
+        var td_width = th_width - 15;
+        $('#income_table th:last-child').css('width', th_width);
+        $('#income_table td:last-child').css('width', td_width);
+
+        $('#outcome_table th:last-child').css('width', th_width);
+        $('#outcome_table td:last-child').css('width', td_width);
+
+        $('#tuition_table th:last-child').css('width', th_width);
+        $('#tuition_table td:last-child').css('width', td_width);
+
+    }
+
+</script>
+
+</body>
+</html>
+

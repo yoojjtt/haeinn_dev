@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <title>Admin Home Page test</title>
+    <!-- Bootstrap -->
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+
+    <link href="../../assets/styles.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="../../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+</head>
+
+<body>
+<div role="tabpanel" class="tab-pane fade in active" id="com_dashboard_page">
+    <div class="row-fluid">
+        <div class="block" >
+            <div class="navbar navbar-inner block-header">  <!--head -->
+                <div class="muted pull-left">서비스 현황</div>
+                <div class="pull-right">
+
+                </div>
+            </div>
+            <div class="block-content collapse in">
+                <!-- span12 -->
+                <div class="span12"  >
+                    <div class="form-signin">
+
+
+                        <table class="table table-bordered  scrolltbody">
+                            <thead>
+                            <tr>
+                                <th>회사</th>
+                                <th>사용자</th>
+                                <th>대표 이메일</th>
+                                <th>서비스 기간 </th>
+                                <th>수정</th>
+
+                            </tr>
+                            </thead>
+                            <tbody id="service_table"></tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script src="../../vendors/jquery-1.9.1.min.js"></script>
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<script src="../../vendors/easypiechart/jquery.easy-pie-chart.js"></script>
+<script src="../../assets/scripts.js"></script>
+
+
+<script src="../../js/my_js/_DB_query.js"></script>
+<script src="../../js/my_js/_static.js"></script>
+
+<script src ="../../js/my_js/_service_auth.js"></script>
+<script src="../../js/my_js/UI.js"></script>
+
+<script>
+
+    $(function() {
+        service_auth.load(email);
+    });
+
+
+
+
+
+
+</script>
+
+
+<script src="../../vendors/datatables/js/jquery.dataTables.min.js"></script>  <!-- data를 부르고 난뒤에 dt 만들것 -->
+<script src="../../assets/DT_bootstrap.js"></script>
+</body>
+
+
+</html>

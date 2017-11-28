@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <title>Admin Home Page test</title>
+    <!-- Bootstrap -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <link href="../css/style.css" rel="stylesheet"  media="screen">
+    <link href="../assets/styles.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="hyunjang">
+    <ul class="nav nav-tabs" role="tablist" id="myTab">
+        <li role="presentation" class="active"><a onclick="_tabFrame('hyunjang_tab/hyunjang_page.html');" href="#" aria-controls="hyunjang_page" role="tab" data-toggle="tab">기본 관리</a></li>
+        <li role="presentation"><a onclick="_tabFrame('hyunjang_tab/daily_employee_page.html');" href="#" aria-controls="daily_member_page" role="tab" data-toggle="tab">일용직 관리</a></li>
+        <li role="presentation"><a onclick="_tabFrame('hyunjang_tab/register_page.html');" href="#" aria-controls="danga_page" role="tab" data-toggle="tab">일용자 현장등록</a></li>
+        <li role="presentation"><a onclick="_tabFrame('hyunjang_tab/kongsu_page.html');" href="#" aria-controls="kongsu_page" role="tab" data-toggle="tab">공수관리</a></li>
+        <li role="presentation"><a onclick="_tabFrame('hyunjang_tab/closing_page.html');" href="#" aria-controls="closing_page" role="tab" data-toggle="tab">결산</a></li>
+
+    </ul>
+    <!-- tab_contnents -->
+    <div  class="tab_contents" id="tab_contents">
+        <iframe name="iframe_tab_contents"
+                id="iframe_tab_contents"
+                frameborder=0"
+                scrolling="no"
+                width="100%" height="100%"
+                class="">
+        </iframe>
+    </div>
+</div>
+
+
+
+<script src="../vendors/jquery-1.9.1.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="../vendors/easypiechart/jquery.easy-pie-chart.js"></script>
+<script src="../assets/scripts.js"></script>
+
+
+<script src="../js/my_js/_DB_query.js"></script>
+<script src="../js/my_js/_static.js"></script>
+
+<script src="../js/my_js/_auth.js"></script>
+<script src="../js/my_js/employee.js"></script>
+<script src="../js/my_js/UI.js"></script>
+<script src="../js/my_js/hyunjang.js"></script>
+<script src="../js/my_js/daily_employee.js"></script>
+
+<script>
+
+    $(function() {
+
+        window_resize();
+        hyunjang.hyunjang_load(company_no);
+        daily_employee.daily_employee_load(company_no);
+        _tabFrame('hyunjang_tab/hyunjang_page.html');
+
+    });
+
+    $(window).resize(function() {
+        window_resize();
+
+    });
+
+    function window_resize() {
+        var win_width = $(window).width();
+        var win_height = $(window).height();
+
+        //높이--38:tabNav
+        var basic_height = win_height-41;
+        $('#tab_contents').css('height', basic_height);
+    }
+
+
+
+    function _tabFrame(loadPage, num, gubun_val){  // navbar에서 다른 탭 누를시 contents 페이지 변경
+        //alert(num);
+
+        document.getElementById('iframe_tab_contents').src = loadPage;
+        document.getElementById('iframe_tab_contents').onload = function() {
+            var target = document.getElementById('iframe_tab_contents').contentWindow;
+        };
+
+    }
+
+
+
+</script>
+
+
+<script src="../vendors/datatables/js/jquery.dataTables.min.js"></script>  <!-- data를 부르고 난뒤에 dt 만들것 -->
+<script src="../assets/DT_bootstrap.js"></script>
+</body>
+
+
+</html>

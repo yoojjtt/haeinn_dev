@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bauhaus 2017[금전출납장부 결산]</title>
+
+    <!-- 부트스트랩 -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!--<link href="/css/style.min.css" rel="stylesheet">-->
+    <link href="../../css/style.css" rel="stylesheet"  media="screen">
+</head>
+<body>
+
+<div class="settlement_page_box panel panel-default">
+
+    <div class="settlement_big_box">
+
+        <div class="settlement_inBox">
+
+            <div class="Sbox income_box">
+                <div class="Sbox_head">
+                    <div>
+                        <span class="date_guide_txt">입력기간 : <span id="startDay">2014.06.30</span></span>
+                        <span> ~ <span id="endDay">2017.01.13</span> / </span>
+                        <span class="date_guide_txt">전기이월금 : <span id="blance_money">1,000</span> 원</span>
+                    </div>
+                    <div class="_total_sum">* 수입내역(합산금액) : <span id="incom_label"></span> 원</div>
+                    <div type="div" class="btn btn-default" id="btn_income">항목별통계(수입)</div>
+                </div>
+
+                <table class="table table-condensed" id="incom_table">
+                    <thead>
+                    <th>일자</th>
+                    <th>금액</th>
+                    <th>항목</th>
+                    </thead>
+                    <tbody>
+
+                    <!-- 데이터 -->
+
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="Sbox expenditure_box">
+                <div class="Sbox_head">
+                    <div class="_total_sum">* 지출내역(합산금액) : <span id="outcom_label"></span> 원</div>
+                    <div type="div" class="btn btn-default" id="btn_expenditure">항목별통계(지출)</div>
+                </div>
+
+                <table class="table table-condensed" id="outcom_table">
+                    <thead>
+                    <th>일자</th>
+                    <th>금액</th>
+                    <th>항목</th>
+                    </thead>
+                    <tbody>
+
+                    <!-- 데이터 -->
+
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="Sbox summary_box">
+                <div class="Sbox_head">
+                    <div class="_total_sum"> * 수강료내역(합산금액) : <span id="tuition_label"></span> 원</div>
+                </div>
+
+                <table class="table table-condensed income" id="tuition_table">
+                    <thead>
+                    <th>일자</th>
+                    <th>금액</th>
+                    <th>항목</th>
+                    </thead>
+                    <tbody>
+
+                    <!-- 데이터 -->
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<!--<script src="/js/_static.min.js"></script>-->
+<!--<script src="/js/_common_util.min.js"></script>-->
+<!--<script src="/js/_DB_query.min.js"></script>-->
+<!--<script src="/js/account_closing.min.js"></script>-->
+
+<script>
+
+    $(function(){
+
+        //account_closing._init()
+        windows_resize();
+
+    });
+
+    $(window).resize(function() {
+
+        //console.log(win_height);
+        windows_resize();
+
+    });
+
+    function windows_resize() {
+        var win_width = $(window).width();
+        var win_height = $(window).height();
+
+        $('#settlement').css('height', win_height-10);
+
+        var table_height = win_height-213;
+        $('#incom_table tbody').css('height', table_height);
+        $('#outcom_table tbody').css('height', table_height);
+        $('#tuition_table tbody').css('height', table_height);
+
+        var th_width = 380 - 210;
+        var td_width = th_width - 15;
+        $('#incom_table th:last-child').css('width', th_width);
+        $('#incom_table td:last-child').css('width', td_width);
+        $('#outcom_table th:last-child').css('width', th_width);
+        $('#outcom_table td:last-child').css('width', td_width);
+        $('#tuition_table th:last-child').css('width', th_width);
+        $('#tuition_table td:last-child').css('width', td_width);
+
+    }
+    
+    function _reload() {
+
+        account_closing.read();
+        account_closing.read_closingInfo();
+        
+    }
+
+</script>
+
+</body>
+</html>
+

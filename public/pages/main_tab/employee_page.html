@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <title>Admin Home Page test</title>
+
+    <!-- 부트스트랩 -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="../../assets/styles.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet"  media="screen">
+
+</head>
+
+<body>
+
+<div role="tabpanel" class="employee_page">
+    <div class="panel panel-default ">  <!--head -->
+        <div class="panel-heading">
+            <div class="pull-left">
+
+            </div>
+            <div class="pull-right">
+                <button class="btn btn-info" id="daily_enroll" onClick="employee.new_employee()" >신규등록</button>
+                <button class="btn btn-success" onClick="employee.employee_save()" id="btn_save">저장</button>
+                <button class="btn btn-default" id="btn_delete">삭제</button>
+            </div>
+        </div>
+    </div>
+    <div class="area_in_box" id="daily_employee_panel">
+        <div class="area area1">
+            <table id="daily" class="table table-striped">
+                <thead>
+                <tr>
+                    <th style="display:none;">#</th>
+                    <th>성명</th>
+                    <th>핸드폰 번호</th>
+                    <th>이메일</th>
+                    <th>직책</th>
+                </tr>
+                </thead>
+                <tbody id="employees_list">
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+
+
+
+
+        <!---------------------------------------- right area ------------------------>
+        <div class="area area2">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*이름</label>
+                <div class="col-sm-9">
+                    <div class="input-box"><input type="text" class="form-control" id="em_name" placeholder="이름"></div>
+                    <input type="text" id="em_id" hidden value="0">
+                    <!--Radio
+                    <div class="radio-sex">
+                        <div class="box"><input id="sex1" type="radio" name="sex" checked> 남 </div>
+                        <div class="box"><input id="sex2" type="radio" name="sex" > 여 </div>
+                    </div>-->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*직종</label>
+                <div class="col-sm-9">
+                    <select id="em_type" class="btn-default form-control btn_job">
+                        <option value="0">직책선택</option>
+                        <option value="대표">대표</option>
+                        <option value="소장">소장</option>
+                        <option value="회계">회계</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*email</label>
+                <div class="col-sm-9">
+                    <div class="input-box"><input type="text" class="form-control" id="em_email" placeholder="이메일"></div>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*주민번호</label>
+                <div class="col-sm-9">
+                    <div class="input-box"><input type="text" class="form-control" id="em_jumin1" placeholder="주민번호앞자리" maxlength="6" onKeyPress="return numkeyCheck(event)"></div>
+                    <div class="input-box"><input type="password" class="form-control" id="em_jumin2" placeholder="주민번호뒷자리"  maxlength="7" onKeyPress="return numkeyCheck(event)"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*핸드폰</label>
+                <div class="col-sm-9">
+                    <select  class="btn btn-default form-control" id="em_phone1">
+                        <option>010</option>
+                        <option>011</option>
+                        <option>016</option>
+                        <option>017</option>
+                        <option>018</option>
+                        <option>019</option>
+                    </select>
+                    <div class="input-box-type2"><input  type="text" class="form-control" id="em_phone2" placeholder="" maxlength="4" onKeyPress="return numkeyCheck(event)" style="IME-MODE: disabled;"></div>
+                    <div class="input-box-type2"><input  type="text" class="form-control" id="em_phone3" placeholder="" maxlength="4" onKeyPress="return numkeyCheck(event)" style="IME-MODE: disabled;"></div>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">주소</label>
+                <div class="col-sm-9">
+                    <div class="input_box_post"><input id="em_postnum" type="text" class="form-control iPost"  placeholder=""></div><!-- readonly -->
+                    <div class="btn_box"><button class="btn btn-default" id="btn_post_search">우편번호검색</button></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label"></label>
+                <div class="col-sm-9">
+                    <div class="input-box-type3"><input type="text" id="em_address1" class="form-control"  placeholder="주소"></div>
+                    <div class="input-box-type3"><input type="text" id="em_address2" class="form-control"  placeholder="상세주소"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*급여계좌</label>
+                <div class="col-sm-9">
+                    <select id="em_account_name" class="btn btn-default form-control btn_bank" >
+                        <option value=''>-선택-</option>
+                        <option value='SC제일은행'>SC제일은행</option>
+                        <option value='경남은행'>경남은행</option>
+                        <option value='광주은행'>광주은행</option>
+                        <option value='국민은행'>국민은행</option>
+                        <option value='굿모닝신한증권'>굿모닝신한증권</option>
+                        <option value='기업은행'>기업은행</option>
+                        <option value='농협중앙회'>농협중앙회</option>
+                        <option value='농협회원조합'>농협회원조합</option>
+                        <option value='대구은행'>대구은행</option>
+                        <option value='대신증권'>대신증권</option>
+                        <option value='대우증권'>대우증권</option>
+                        <option value='동부증권'>동부증권</option>
+                        <option value='동양종합금융증권'>동양종합금융증권</option>
+                        <option value='메리츠증권'>메리츠증권</option>
+                        <option value='미래에셋증권'>미래에셋증권</option>
+                        <option value='뱅크오브아메리카(BOA)'>뱅크오브아메리카(BOA)</option>
+                        <option value='부국증권'>부국증권</option>
+                        <option value='부산은행'>부산은행</option>
+                        <option value='산림조합중앙회'>산림조합중앙회</option>
+                        <option value='산업은행'>산업은행</option>
+                        <option value='삼성증권'>삼성증권</option>
+                        <option value='상호신용금고'>상호신용금고</option>
+                        <option value='새마을금고'>새마을금고</option>
+                        <option value='수출입은행'>수출입은행</option>
+                        <option value='수협중앙회'>수협중앙회</option>
+                        <option value='신영증권'>신영증권</option>
+                        <option value='신한은행'>신한은행</option>
+                        <option value='신협중앙회'>신협중앙회</option>
+                        <option value='에스케이증권'>에스케이증권</option>
+                        <option value='에이치엠씨투자증권'>에이치엠씨투자증권</option>
+                        <option value='엔에이치투자증권'>엔에이치투자증권</option>
+                        <option value='엘아이지투자증권'>엘아이지투자증권</option>
+                        <option value='외환은행'>외환은행</option>
+                        <option value='우리은행'>우리은행</option>
+                        <option value='우리투자증권'>우리투자증권</option>
+                        <option value='우체국'>우체국</option>
+                        <option value='유진투자증권'>유진투자증권</option>
+                        <option value='전북은행'>전북은행</option>
+                        <option value='제주은행'>제주은행</option>
+                        <option value='키움증권'>키움증권</option>
+                        <option value='하나대투증권'>하나대투증권</option>
+                        <option value='하나은행'>하나은행</option>
+                        <option value='하이투자증권'>하이투자증권</option>
+                        <option value='한국씨티은행'>한국씨티은행</option>
+                        <option value='한국투자증권'>한국투자증권</option>
+                        <option value='한화증권'>한화증권</option>
+                        <option value='현대증권'>현대증권</option>
+                        <option value='홍콩상하이은행'>홍콩상하이은행</option>
+                    </select>
+                    <div class="input-box"><input id="em_account_owner" type="text" class="form-control" placeholder="예금주 예)홍길동" style="IME-MODE: disabled;"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label"></label>
+                <div class="col-sm-9">
+                    <div class="input-box-type5"><input id="em_account" type="text" class="form-control"  placeholder="계좌번호"></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../../vendors/jquery-1.9.1.min.js"></script>
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+
+<script src="../../assets/scripts.js"></script>
+
+<script src="../../js/my_js/_DB_query.js"></script>
+<script src="../../js/my_js/_static.js"></script>
+
+<script src="../../js/my_js/UI.js"></script>
+<script src="../../js/my_js/_table_ui.js"></script>
+<script src="../../js/my_js/employee.js"></script>
+
+<script>
+
+    $(function() {
+
+        window_resize();
+        employee.employees_all_load(); //직원 전체 목록 로드
+    });
+    $(window).resize(function() {
+
+        window_resize();
+
+    });
+
+    function window_resize() {
+        var win_width = $(window).width();
+        var win_height = $(window).height();
+
+        //높이--38:tabNav
+        $('#daily_employee_panel').css('height', win_height-47);
+        $('#daily_employee_panel').css('width', win_width);
+        $('#employees_list').css('height', win_height-105);  // table 크기를 윈도우크기에서 살짝 띄운다.
+    }
+
+
+
+
+
+
+</script>
+
+
+</body>
+
+
+</html>

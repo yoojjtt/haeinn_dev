@@ -1,0 +1,244 @@
+.closing {
+  min-width: 900px;
+
+  .head1 {
+    height: 47px;
+    padding: 6px;
+
+    .btn_box_left {
+      float: left;
+
+      .btn_check_all {
+        float: left;
+        padding-right: 4px;
+
+        .btn-box {
+          float: left;
+          padding-right: 2px;
+        }
+
+        .select-box {
+          float: left;
+          padding-right: 3px;
+          width: 300px;
+        }
+        .select-box2 {
+          float: left;
+          width:165px;
+          padding-right: 3px;
+
+        }
+
+
+
+        #sJob {
+          width:100px;
+        }
+
+        #sKongsu_type {
+          width:125px;
+        }
+
+        .btn_kongsu {
+          float: left;
+          width:150px;
+        }
+      }
+
+      .btn_etc {
+        float: left;
+      }
+
+    }
+    .btn_etc{
+      float: right;
+
+      .date {
+        float: right;
+        z-index: 10;  // 최상위
+        color: red;
+        background: white;
+        margin-right: 5px;
+        height:34px;
+        .input-append{
+          height:25px;
+        }
+        input{
+          border:0px;
+          height:24px;
+
+        }
+
+        span {
+          color: #33acfe;
+        }
+
+        .lbl_targetDay {
+          color: red;
+        }
+
+
+        span {
+          color: #33acfe;
+        }
+
+        .lbl_targetDay {
+          color: red;
+        }
+      }
+
+      .btn-default {
+        float: right;
+        margin-right: 5px;
+      }
+      .btn_refresh {
+        float: right;
+
+      }
+
+    }
+  }
+
+  .head2 {
+    height: 47px;
+    padding: 6px;
+
+    .name-label {
+      float: left;
+      padding: 5px;
+    }
+
+    .normality {
+      color: #48eb00;
+    }
+    .absence {
+      color: red;
+    }
+    .day_off {
+      color: #75e3fe;
+    }
+    .yet {
+      color: darkgrey;
+    }
+
+
+  }
+
+  .table {
+    width: 100% ;
+    max-width: 100% ;
+    //height: 100%;
+    display: block;
+    border-collapse: collapse;
+    min-width:1500px;
+    max-width:1550px;
+
+    .zero_data {
+      position: relative;
+      top: 70px;
+      text-align: center;
+    }
+    thead {
+      border-bottom:1px solid #ddd;
+    }
+    th {
+      padding:0;
+      text-align: center;
+      //border-right: 1px solid #ddd;
+      border-bottom:none;
+      div.label_week_date{
+        float:left;
+        width: 25px;
+        //border-left: 1px solid #ddd;
+        line-height: 1.5;
+        color: #a2a2a2;
+        ._week{
+          font-weight: normal;
+          font-size: 9px;
+        }
+      }
+      .sun{
+        color: deeppink!important;
+      }
+      .sat{
+        color: deepskyblue!important;
+      }
+    }
+    tr {
+      text-align: center;
+    }
+    td {
+      font-size: 12px;
+      //padding-top: 25px;
+    }
+    tbody#kongsu_table_body {
+      min-width:1500px;
+      max-width:1550px;
+      display: block;
+      overflow-y: scroll;
+      overflow-x: hidden;
+
+      div.label_week_date {
+        float: left;
+        width: 25px;
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        line-height: 1.5;
+        color: #a2a2a2;
+        padding:0;
+        text-align:center;
+        //padding-left: 8px;
+
+      }
+      .attendance_label_1 {
+        color: #48eb00;
+      }
+      .attendance_label_2 {
+        color: red;
+      }
+
+    }
+
+    .list_row:hover {
+      background: #dddddd;
+      cursor: pointer;
+    }
+
+    th {
+
+      &:nth-of-type(2) {width: 50px; padding-bottom:8px;}   //#
+      &:nth-of-type(3) {width: 150px; padding-bottom:8px;}   //이름
+      &:nth-of-type(4) {width: 90px; padding-bottom:8px;}   //직종
+      &:nth-of-type(5) {width: 290px; padding-bottom:8px;}  //주민번호
+      &:nth-of-type(6) {min-width: 422px; max-width:422px;}   //일별 공수
+      &:nth-of-type(7) {width: 120px; }   //공수 합계
+      &:nth-of-type(8) {width: 160px; padding-bottom:8px;}   //단가
+      &:nth-of-type(9) {width: 100px; padding-bottom:8px; }   // 최종 합계 금액
+
+    }
+    td {
+
+
+      &:nth-of-type(2) {width: 50px;}   // #
+      &:nth-of-type(3) {width: 120px;}   // 이름
+      &:nth-of-type(4) {width: 100px;} //직종
+      &:nth-of-type(5) {width: 200px;} //주민번호
+      &:nth-of-type(6) {min-width:420px; max-width: 420px; padding-left:0; padding-right:0;} //일별 공수
+      &:nth-of-type(7) {width: 100px;  } //공수 합계
+      &:nth-of-type(8) {width: 100px;} // 단가
+      &:nth-of-type(9) {width: 100px; } // 최종합계금액
+
+    }
+
+    th:last-child {
+      width: calc(100px) ;text-align: left;
+    }
+
+    td:last-child {
+      width: calc(1200px);text-align: left;
+      border-right: 1px solid #ddd; //width: calc(5600px);text-align: right;
+    }
+
+  }
+
+}

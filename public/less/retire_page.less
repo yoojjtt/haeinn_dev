@@ -1,0 +1,264 @@
+.retire {
+  min-width: 900px;
+
+  .head1 {
+    height: 47px;
+    padding: 6px;
+
+    .btn_box_left {
+      float: left;
+
+      .btn_check_all {
+        float: left;
+        padding-right: 4px;
+
+        .btn-box {
+          float: left;
+          padding-right: 2px;
+        }
+
+        .select-box {
+          float: left;
+          padding-right: 3px;
+          width: 300px;
+        }
+        .select-box2 {
+          float: left;
+          width:165px;
+          padding-right: 3px;
+
+        }
+
+
+
+        #sJob {
+          width:100px;
+        }
+
+        #sKongsu_type {
+          width:125px;
+        }
+
+        .btn_kongsu {
+          float: left;
+          width:150px;
+        }
+      }
+
+      .btn_etc {
+        float: left;
+      }
+
+    }
+    .btn_etc{
+      float: right;
+
+      .date {
+        float: right;
+        z-index: 10;  // 최상위
+        color: red;
+        background: white;
+        margin-right: 5px;
+        height:34px;
+        .input-append{
+          height:25px;
+        }
+        input{
+          border:0px;
+          height:24px;
+
+        }
+
+        span {
+          color: #33acfe;
+        }
+
+        .lbl_targetDay {
+          color: red;
+        }
+
+
+        span {
+          color: #33acfe;
+        }
+
+        .lbl_targetDay {
+          color: red;
+        }
+      }
+
+      .btn-default {
+        float: right;
+        margin-right: 5px;
+      }
+      .btn_refresh {
+        float: right;
+
+      }
+
+    }
+  }
+
+  .head2 {
+    height: 47px;
+    padding: 6px;
+
+    .name-label {
+      float: left;
+      padding: 5px;
+    }
+
+    .normality {
+      color: #48eb00;
+    }
+    .absence {
+      color: red;
+    }
+    .day_off {
+      color: #75e3fe;
+    }
+    .yet {
+      color: darkgrey;
+    }
+
+
+  }
+
+  .table {
+    width: 100%;
+    max-width: 100%;
+    min-width: 1500px;
+    height: 100%;
+    display: block;
+    border-collapse: collapse;
+
+    .zero_data {
+      position: relative;
+      top: 70px;
+      text-align: center;
+    }
+
+    th {
+      padding:0;
+      text-align: center;
+      border-left: 1px solid #ddd;
+      div.label_week_date{
+        float:left;
+        width: 30px;
+        border-left: 1px solid #ddd;
+        line-height: 1.5;
+        color: #a2a2a2;
+        padding-left:5px;
+
+        ._week{
+          font-weight: normal;
+          font-size: 9px;
+        }
+
+      }
+      .sun{
+        color: deeppink!important;
+      }
+      .sat{
+        color: deepskyblue!important;
+      }
+    }
+    tr {
+      text-align: center;
+
+
+    }
+    thead{
+      tr:first-child{
+        th{
+          padding:10px;
+        }
+      }
+
+    }
+
+
+    td {
+      font-size: 12px;
+      padding:0;
+      //padding-top: 25px;
+    }
+    tbody {
+      display: block;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      div.label_week_date {
+        float: left;
+        width: 30px;
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        line-height: 1.5;
+        color: #a2a2a2;
+        //padding-left: 8px;
+
+      }
+
+      .attendance_label_1 {
+        color: #48eb00;
+      }
+      .attendance_label_2 {
+        color: red;
+      }
+
+    }
+    /*
+    .td_checkbox {
+      padding: 25px 0 25px 0;
+    }
+    */
+    .list_row:hover {
+      background: #dddddd;
+      cursor: pointer;
+    }
+
+
+    th {
+
+      //text-align: center!important;
+
+      //&:nth-of-type(1) {}  //display:none
+      &:nth-of-type(2) {width: 41px; padding-bottom:20px;}//num
+      &:nth-of-type(3) {width: 79px; padding-bottom:20px;}//이름
+      &:nth-of-type(4) {width: 79px; padding-bottom:20px;}//직종
+      &:nth-of-type(5) {width: 103px; padding-bottom:20px;}//주민번호
+      &:nth-of-type(6) {width: 102px;padding-bottom:20px; }  //입사일
+
+
+
+    }
+    td {
+      border-right: 1px solid #ddd;
+
+      //text-align: center!important;
+
+      &:nth-of-type(2) {width: 40px;}  //num
+      &:nth-of-type(3) {width: 76px;}  //이름
+      &:nth-of-type(4) {width: 78px;} //직종
+      &:nth-of-type(5) {width: 100px; } //주민번호
+      &:nth-of-type(6) {width: 100px; }  // 입사일
+
+
+
+    }
+
+
+
+    th:last-child {
+      width: calc(5600px); text-align:left;
+    }
+    td:last-child {
+      width: calc(1000px); text-align:left;
+    }
+
+    td:last-child {
+      border-right: 1px solid #ddd; //width: calc(5600px);text-align: right;
+    }
+
+  }
+
+}

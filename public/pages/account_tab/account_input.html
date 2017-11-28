@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bauhaus 2017[금전출납장부]</title>
+
+    <!-- 부트스트랩 -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/datepicker.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+
+<div class="payment_page panel panel-default" id="payment_page" >
+
+    <div class="calendar_area" id="calendar_area">
+        <div id="dp6"></div>
+    </div>
+
+    <div class="input_list_area">
+        <ul class="list-group">
+            <li class="date_guide_txt list-group-item">
+                입력기간 :
+                <span id="input_start"></span> ~ <span id="input_end"></span> 까지
+                / 전기이월금 : <span id="balance_money"></span>원
+            </li>
+            <li class="list-group-item write_big_box" id="account_input_big_box">
+                <div class="option-buttons">
+                    <button type="button" class="btn btn-default" id="btn_item" aria-label="Left Align">항목등록</button>
+                    <button type="button" class="btn btn-default" id="btn_today" aria-label="Left Align">오늘날짜로</button>
+                    <button type="button" class="btn btn-default" id="btn_accountBook" aria-label="Left Align">2017.01.12 장부입력</button>
+                </div>
+
+                <div class="write_box" id="account_input_box">
+
+                    <div class="input_box input_gubun">
+                        <div class="guide_txt">+ 구분선택</div>
+                        <table class="table table-condensed" id="gubun_list">
+                            <tbody>
+                            <tr class="list_row" id="gubun_list_1">
+                                <td>수입</td>
+                            </tr>
+                            <tr class="list_row odd" id="gubun_list_2">
+                                <td>지출</td>
+                            </tr>
+                            <tr class="list_row" id="gubun_list_3">
+                                <td>전기이월</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="input_box input_group" id="input_group2">
+
+                        <div class="guide_txt">+ 항목선택</div>
+                        <table class="table table-condensed">
+                            <tbody>
+                            <!-- 데이터 -->
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="input_box input_group3" id="input_group3">
+
+                        <div class="guide_txt">+ 수강학생선택</div>
+                        <div class="class_div">
+                            <select class="btn-default btn-xs" id="sClass">
+
+                            </select>
+                        </div>
+                        <table class="table table-condensed" id="student_table">
+                            <tbody>
+                            <!-- 데이터 -->
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="input_box input_group4" id="input_group4">
+
+                        <div class="guide_txt3">+ 금액/내용(<span id="lbl_selected2"></span>)</div>
+
+                        <div class="input_box input_contents_label">
+
+                            <div class="right_txt">기준일</div>
+                            <div class="right_txt">금액</div>
+                            <div class="right_txt">결재방법</div>
+                            <div class="right_txt">메모</div>
+
+                        </div>
+
+                        <div class="input_box input_contents">
+                            <div class="form_line">
+                                <input class="form-control" id="iTargetDay" readonly>
+                            </div>
+
+                            <div class="form_line">
+                                <input class="form-control" id="iMoney" maxlength="10" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">
+                            </div>
+
+                            <div class="form_line check_box">
+                                <label><div class="_box"><input type="radio" name="pay_method" id="pay_type1" checked> 현금</div></label>
+                                <label><div class="_box"><input type="radio" name="pay_method" id="pay_type2"> 은행 입/출금</div></label>
+                            </div>
+
+                            <div class="form_line">
+                                <textarea class="form-control memo_textarea" rows="2" id="iMemo"></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="input_contents_button">
+
+                            <div class="_box"><button class="btn btn-primary btn-sm" id="btn_add">추가</button></div>
+                            <div class="_box"><button class="btn btn-success btn-sm" id="btn_save">저장</button></div>
+                            <div class="_box"><button class="btn btn-default btn-sm" id="btn_delete" disabled>삭제</button></div>
+                            <div class="_box"><button class="btn btn-default btn-sm" id="btn_close">닫기</button></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </li>
+            <li class="payment_top_space list-group-item"></li>
+            <li class="payment_list list-group-item" id="payment_list">
+
+                <table class="table table-bordered table-striped" id="payment_table">
+                    <thead>
+                    <tr>
+                        <th>일자</th>
+                        <th>항목</th>
+                        <th class="income">수입</th>
+                        <th class="outcom">지출</th>
+                        <th>내용</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
+                    <!-- 데이터 -->
+
+                    </tbody>
+
+                </table>
+
+            </li>
+            <li class="list_total list-group-item">
+                <div class="sum">합계</div>
+                <div class="income" id="today_incom_sum"></div>
+                <div class="outcom" id="today_outcom_sum"></div>
+            </li>
+            <li class="today_total list-group-item">
+                <div class="_label">일일결산</div>
+                <div class="_data">
+                    <span id="today_closing"></span>
+                    <span>(</span>
+                    <span class="income" id="today_incom_sum2"></span>
+                    <span> - </span>
+                    <span class="outcom" id="today_outcom_sum2"></span>
+                    <span>)</span>
+                </div>
+
+            </li>
+            <li class="month_total list-group-item">
+                <div class="total_sum">
+                    <div class="_label">입력기간</div>
+                    <div class="_data date_guide_txt">
+                        <span id="input_start2"></span> -
+                        <span id="input_end2"></span>까지
+                    </div>
+                </div>
+
+                <div class="total_result">
+                    <div class="_label">누적합산</div>
+                    <div class="_data">
+                        <span id="total_closing"></span>
+                        <span>(</span>
+                        <span class="income" id="total_incom_sum"></span>
+                        <span> - </span>
+                        <span class="expenditure" id="total_outcom_sum"></span>
+                        <span> + </span>
+                        <span class="date_guide_txt" id="balance_money2"></span>
+                        <span>)</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
+
+<script src="../../js/_static.js"></script>
+<script src="../../js/_common_util.js"></script>
+<script src="../../js/my_js/_DB_query.js"></script>
+<script src="../../js/my_js/account_input.js"></script>
+
+<script type="text/javascript" src="../../js/bootstrap-datepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../js/locales/bootstrap-datepicker.kr.js" charset="UTF-8"></script>
+
+<script>
+
+    $(function(){
+
+        windows_resize();
+        account_input._init();
+
+        $('#dp6').datepicker({
+            format: "yyyy-mm-dd",
+            startView: 3,
+            todayBtn:false, //"linked"
+            language: "kr",
+            orientation: "top auto",
+            pickTime : false,
+            defalutDate : new Date(),
+            keyboardNavigation: false,
+            forceParse: false,
+            autoclose: true,
+            todayHighlight: true
+        });
+
+        $('#dp6').datepicker()
+            .on('changeDate', function(ev){
+                //if (ev.date.valueOf() < startDate.valueOf()){
+                //}
+                //console.log(ev);//return;
+                account_input.change_target_day(ev.date);
+            });
+
+
+
+    });
+
+    $(window).resize(function() {
+
+        windows_resize();
+
+    });
+
+    function windows_resize() {
+        var win_width = $(window).width();
+        var win_height = $(window).height();
+
+        var list_height = win_height-(450-100);
+        $('#payment_list').css('height', list_height);
+        $('#payment_table tbody').css('height', list_height-50);
+
+        var th_width = 836 - 550;
+        var td_width = th_width - 15;
+        $('#payment_table th:last-child').css('width', th_width);
+        $('#payment_table td:last-child').css('width', td_width);
+    }
+
+</script>
+
+</body>
+</html>
+

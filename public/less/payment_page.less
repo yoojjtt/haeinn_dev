@@ -1,0 +1,295 @@
+.payment {
+  min-width: 900px;
+
+  .head1 {
+    height: 47px;
+    padding: 6px;
+
+    .btn_box_left {
+      float: left;
+
+      .btn_check_all {
+        float: left;
+        padding-right: 4px;
+
+        .btn-box {
+          float: left;
+          padding-right: 2px;
+        }
+
+        .select-box {
+          float: left;
+          padding-right: 3px;
+          width: 300px;
+        }
+        .select-box2 {
+          float: left;
+          width:165px;
+          padding-right: 3px;
+
+        }
+
+
+
+        #sJob {
+          width:100px;
+        }
+
+        #sKongsu_type {
+          width:125px;
+        }
+
+        .btn_kongsu {
+          float: left;
+          width:150px;
+        }
+      }
+
+      .btn_etc {
+        float: left;
+      }
+
+    }
+    .btn_etc{
+      float: right;
+
+      .date {
+        float: right;
+        z-index: 10;  // 최상위
+        color: red;
+        background: white;
+        margin-right: 5px;
+        height:34px;
+        .input-append{
+          height:25px;
+        }
+        input{
+          border:0px;
+          height:24px;
+
+        }
+
+        span {
+          color: #33acfe;
+        }
+
+        .lbl_targetDay {
+          color: red;
+        }
+
+
+        span {
+          color: #33acfe;
+        }
+
+        .lbl_targetDay {
+          color: red;
+        }
+      }
+
+      .btn-default {
+        float: right;
+        margin-right: 5px;
+      }
+      .btn_refresh {
+        float: right;
+
+      }
+
+    }
+  }
+
+  .head2 {
+    height: 47px;
+    padding: 6px;
+
+    .name-label {
+      float: left;
+      padding: 5px;
+    }
+
+    .normality {
+      color: #48eb00;
+    }
+    .absence {
+      color: red;
+    }
+    .day_off {
+      color: #75e3fe;
+    }
+    .yet {
+      color: darkgrey;
+    }
+
+
+  }
+
+  .table {
+    width: 100%;
+    max-width: 100%;
+    min-width: 1050px;  // 화면에 최소값을 줘서 더 아래에는 변화가 없도록
+    height: 100%;
+    display: block;
+    border-collapse: collapse;
+
+    .zero_data {
+      position: relative;
+      top: 70px;
+      text-align: center;
+    }
+    .input-sm{
+      height:20px;
+      padding:5px;
+    }
+    th {
+      padding:0;
+      text-align: center;
+      border-left: 1px solid #ddd;
+      div.label_week_date{
+        float:left;
+        width: 30px;
+        border-left: 1px solid #ddd;
+        line-height: 1.5;
+        color: #a2a2a2;
+        padding-left:5px;
+
+        ._week{
+          font-weight: normal;
+          font-size: 9px;
+        }
+
+      }
+      .sun{
+        color: deeppink!important;
+      }
+      .sat{
+        color: deepskyblue!important;
+      }
+    }
+    tr {
+      text-align: center;
+
+
+    }
+    thead{
+      tr:first-child{
+        th{
+          padding:10px;
+        }
+      }
+
+    }
+
+
+    td {
+      font-size: 12px;
+      padding:0;
+      //padding-top: 25px;
+    }
+    tbody {
+      display: block;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      div.label_week_date {
+        float: left;
+        width: 30px;
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        line-height: 1.5;
+        color: #a2a2a2;
+        //padding-left: 8px;
+
+      }
+
+      .attendance_label_1 {
+        color: #48eb00;
+      }
+      .attendance_label_2 {
+        color: red;
+      }
+
+    }
+    /*
+    .td_checkbox {
+      padding: 25px 0 25px 0;
+    }
+    */
+    .list_row:hover {
+      background: #dddddd;
+      cursor: pointer;
+    }
+
+
+    th {
+
+      //text-align: center!important;
+
+      &:nth-of-type(1) {width: 10px;}  //display:none
+      &:nth-of-type(2) {width: 2%; padding-bottom:20px;}//num
+      &:nth-of-type(3) {width: 4%; padding-bottom:20px;}//이름
+      &:nth-of-type(4) {width: 4%; padding-bottom:20px;}//직종
+      &:nth-of-type(5) {width: 8%; padding-bottom:20px;}//주민번호
+      &:nth-of-type(6) {width: 7%;padding-bottom:20px; }  //은행
+      &:nth-of-type(7) {width: 6%; padding-bottom:20px;} //예금주
+      &:nth-of-type(8) {width: 10%; padding-bottom:20px;}  //계좌번호
+      &:nth-of-type(9) {width: 4.95%; padding:10px 0 10px 0;} //합계
+      &:nth-of-type(10) {width: 4.9%; padding-bottom:20px;}  //단가
+      &:nth-of-type(11) {width: 4.86%; padding-bottom:10px;}  //노무비 총액
+      &:nth-of-type(12) {width: 4.95%; padding-bottom:20px;}  //갑근세
+      &:nth-of-type(13) {width: 4.95%; padding-bottom:20px;}  //주민세
+      &:nth-of-type(14) {width: 4.9%; padding-bottom:10px;}  //고용보험
+      &:nth-of-type(15) {width: 4.95%; padding-bottom:10px;} //의료보험
+      &:nth-of-type(16) {width: 4.95%;; padding-bottom:10px;} //국민연금
+      &:nth-of-type(17) {width: 4.95%; padding-bottom:20px;} //공제합계
+      &:nth-of-type(18) {width: 50px; padding-bottom:10px;} //차감된 지급액
+
+
+    }
+    td {
+      border-right: 1px solid #ddd;
+      padding:5px;
+
+      //text-align: center!important;
+      &:nth-of-type(1) {width: 10px;} //id  display:none;
+      &:nth-of-type(2) {width: 2%;}  //num
+      &:nth-of-type(3) {width: 4%;}  //이름
+      &:nth-of-type(4) {width: 4.6%;} //직종
+      &:nth-of-type(5) {width: 8%; } //주민번호
+      &:nth-of-type(6) {width: 5%; }  // 은행
+      &:nth-of-type(7) {width: 4%; }  //예금주
+      &:nth-of-type(8) {width: 10%; text-align:right; padding-right:5px;  }  //계좌번호
+      &:nth-of-type(9) {width: 5%; text-align:right; padding-right:5px; padding-bottom:8px;}  //합계
+      &:nth-of-type(10) {width: 5%; text-align:right; padding-right:5px; padding-bottom:8px;}  //단가
+      &:nth-of-type(11) {width: 5%; text-align:right; padding-right:5px; padding-bottom:8px;} //노무비 총액
+      &:nth-of-type(12) {width: 5%; text-align:right; padding-right:5px; padding-bottom:8px;} //갑근세
+      &:nth-of-type(13) {width: 5%; text-align:right; padding-right:5px;padding-bottom:8px;} //주민세
+      &:nth-of-type(14) {width: 5%; text-align:right; padding-right:5px;padding-bottom:8px;} //고용보험
+      &:nth-of-type(15) {width: 5%; text-align:right; padding-right:5px;padding-bottom:8px;} //의료보험
+      &:nth-of-type(16) {width: 5%; text-align:right; padding-right:5px;padding-bottom:8px;} //국민연금
+      &:nth-of-type(17) {width: 5%; text-align:right; padding-right:5px;padding-bottom:8px;} //공제합계
+      &:nth-of-type(18) {width: 300px; text-align:right; padding-right:5px;} //차감된 지급액
+
+      .input-box-type1{
+        width:80px; text-align:center;
+      }
+      .input-box-type2{
+        width:80px; text-align:center;
+      }
+      .input-box-type3{
+        width:130px; text-align:right;
+      }
+    }
+
+
+    /*
+    th:last-child {
+      width: calc(5600px);text-align: right;
+    }
+    */
+    td:last-child {
+      border-right: 1px solid #ddd; //width: calc(5600px);text-align: right;
+    }
+
+  }
+
+}

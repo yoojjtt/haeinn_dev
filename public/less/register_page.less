@@ -1,0 +1,173 @@
+.register {
+  min-width: 1100px;
+  .panel {
+    margin-bottom: 0;
+    border: inherit;
+
+  }
+  .panel-heading {
+    height: 47px;
+    padding: 6px 10px 6px 10px;
+    .pull-left {
+      float: left;
+      select {
+        float: left;
+        margin-top: 0;
+        width: 300px;
+        margin-right: 5px;
+      }
+
+      .btn-box {
+        float: left;
+        padding-right: 2px;
+      }
+
+      .date {
+        //float: left;
+        z-index: 10;
+        color: red;
+        background: white;
+        margin-right: 5px;
+        height: 34px;
+        .input-append {
+
+          height: 25px;
+        }
+        input {
+          border: 0px;
+
+          height: 24px;
+        }
+      }
+    }
+
+
+
+  }
+  .area_in_box {
+    background: white;
+    display: block;
+    min-width: 1040px;
+    .area {
+      padding: 10px;
+      float: left;
+      font-size: 12px;
+    }
+    .area1 {
+      margin-top:40px;
+      width: 500px;
+      margin-right: 50px;
+      table {
+        width: 500px;
+        border: 1px solid #dddddd;
+        background: #ffffff;
+
+        thead {
+          display: block;
+          text-align: center;
+          background-color:white;
+
+        }
+        tbody {
+          display: block;
+          height: 510px;
+          min-height: 200px;
+          overflow: auto;
+          background-image:url(../images/bg_pattern2.gif);
+
+        }
+        th {
+          text-align: center!important;
+          &:nth-of-type(1) { width: 50px;}
+          &:nth-of-type(2) {width: 70px;}
+          &:nth-of-type(3) {width: 120px;}
+          &:nth-of-type(4) {width: 210px;}
+          &:nth-of-type(5) {width: 80px;}
+          &:nth-of-type(6) {width: 80px;}
+
+        }
+        td {
+          //text-align: center!important;
+          //&:nth-of-type(1) { width: 50px; text-align:center;}
+          &:nth-of-type(2) {width: 40px; text-align:center;}// 선택
+          &:nth-of-type(3) {width: 90px; text-align:center;}// 직종
+          &:nth-of-type(4) {width: 100px; text-align:right;}// 이름
+          &:nth-of-type(5) {width: 170px; text-align:center;} // 단가
+          &:nth-of-type(6) {width: 100px; text-align:center;} //국민
+          &:nth-of-type(7) {width: 80px; text-align:center;} //건강
+
+          input{
+            text-align:right;
+          }
+
+        }
+        tr {
+          &:nth-child(even) {
+            background-color: @background_color_1;
+          }
+        }
+      }
+    }
+    .area2 {
+      margin-right: 50px;
+      padding-top: 250px;
+      .arrow_left {
+        color: #dddddd;
+        font-size: 50px;
+      }
+    }
+    .area3 {
+      width: 380px;
+      select {
+        float: left;
+        width: 110px;
+        margin-bottom: 5px;
+        margin-right: 5px;
+      }
+      .input-box-type2{
+        float: left;
+        width: 110px;
+        margin-right: 5px;
+
+      }
+      .number_text{
+        margin-top:8px;
+        float: left;
+        width: 100px;
+        margin-right: 5px;
+      }
+      table {
+        width: 350px;
+        border: 1px solid #dddddd;
+        background: #ffffff;
+
+        thead {
+          display: block;
+          text-align: center;
+          background-color:white;
+
+        }
+        tbody {
+          display: block;
+          height: 550px;
+          min-height: 200px;
+          overflow: auto;
+          background-image:url(../images/bg_pattern2.gif);
+
+        }
+        th {
+          text-align: center!important;
+          &:nth-of-type(1) { width: 100px;}
+          &:nth-of-type(2) {width: 120px;}
+          &:nth-of-type(3) {width: 130px;}
+        }
+        td {
+          text-align: center!important;
+          &:nth-of-type(1) { width: 100px;}
+          &:nth-of-type(2) {width: 120px;}
+          &:nth-of-type(3) {width: 120px;}
+        }
+      }
+    }
+  }
+}

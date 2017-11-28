@@ -1,0 +1,104 @@
+@import "employee_page";
+@import "hyunjang_page";
+@import "daily_employee_page";
+@import "main";
+@import "hyunjang";
+@import "kongsu_page";
+@import "closing_page";
+@import "company_info";
+@import "private_info";
+@import "password_info";
+@import "register_page";
+@import "dashboard";
+@import "nomu_page";
+@import "payment_page";
+@import "insurance_page";
+@import "retire_page";
+@import "account_closing";
+@import "account_group_manager";
+@import "account_input";
+@import "account_manager";
+@import "account_report";
+@import "dashboard_test";
+@important_color:#6633CC;
+@negative_color:#FF0066;
+@positive_color:#99CCFF;
+@btn_color-base:#CCFF99;
+@tableOverColor:#66FFCC;
+
+@background_color_1: #f2f2f2;
+
+html {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  height:100%;
+}
+
+body {
+  background-image:url(../images/bg_pattern2.gif);
+}
+.navbar-fixed-top {
+  position: inherit;
+}
+
+.main_contents {
+  margin: 10px 5px 5px 5px;
+}
+
+.modal-footer {
+  text-align: center;
+}
+.container{
+  width:100%;
+}
+ul#myTab{
+  margin-bottom:0px;
+}
+.highlight {color:red;}  /*tbody tr 클릭시 강조*/
+
+tr:hover td{background-color: #ddddff}
+
+
+/* ajax loading 을 위한 css 각 페이지에 */
+#loading {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  position: fixed;
+  display: block;
+  opacity: 0.7;
+  background-color: #fff;
+  z-index: 99;
+  text-align: center; }
+
+#loading-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 100; }
+
+/* print loader index.html에 들어가있음*/
+
+.loader { position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+@-webkit-keyframes spin { 0% { -webkit-transform: rotate(0deg); } 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+
+
+
+

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <title>Admin Home Page test</title>
+    <!-- 부트스트랩 -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <link href="../../assets/styles.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<div class="panel panel-default kongsu">
+
+    <div class="panel-heading head1">
+        <div class="btn_box_left">
+            <div class="btn_check_all">
+                <div class="select-box">
+                    <select onChange="load();" id="hyunjang_select" class="btn-default form-control btn_class" >
+
+                    </select>
+                </div>
+                <div class="btn-box">
+                    <button onClick="kongsu.check_all(1,'checkBox2')" class="btn btn-default" id="btn_all">전체선택</button>
+                </div>
+                <div class="select-box2">
+                    <select class="select-inner btn-default form-control btn_type" id="Kongsu_type">
+                        <option value="">[공수처리]</option>
+                        <option value="1">1 공수 (정상처리)</option>
+                        <option value="0">0 공수 (결석처리)</option>
+                        <option value="0.2">0.2 공수 (기타)</option>
+                        <option value="0.5">0.5 공수 (기타)</option>
+                        <option value="1.5">1.5 공수 (기타)</option>
+                        <option value="2">2 공수 (기타)</option>
+                        <option value="2.5">2.5 공수 (기타)</option>
+                        <option value="3">3 공수 (기타)</option>
+                        <option value="3.5">3.5 공수 (기타)</option>
+                        <option value="4">4 공수 (기타)</option>
+                        <option value="4.5">4.5 공수 (기타)</option>
+                        <option value="5">5 공수 (기타)</option>
+
+                        <option value="99">[공수정보삭제]</option>
+                    </select>
+                </div>
+            </div>
+            <div class="btn_etc">
+                <!-- <button class="btn btn-default" id="btn_month_view">조회</button> -->
+                <button onClick="kongsu.kongsu_save()" class="btn btn-success" id="btn_save">저장</button>
+
+            </div>
+        </div>
+        <div class="btn_box_right">
+
+            <button class="btn btn-default" onClick="present_day()" id="btn_today">오늘</button>
+            <div class="btn btn-default glyphicon glyphicon-chevron-right" onClick="day_change(1)" id="btn_right"></div>
+
+
+            <button class="btn date">
+
+                <div class="input-append date" id="dp3">
+                    <input onChange="load();" id="dateSearch" type="date" value="">
+                    <span class="add-on">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        <span class="lbl_targetDay" id="lbl_targetDay"></span>
+                    </span>
+                </div>
+
+            </button>
+
+            <div class="btn btn-default glyphicon glyphicon-chevron-left" onClick="day_change(-1)" id="btn_left"></div>
+
+        </div>
+    </div>
+    <div class="panel-heading head2">
+        <div class="name-label" id="total_label">총 원 : <span id="total_num"></span></div>
+        <div class="name-label">ㅣ </div>
+        <div class="name-label normality" id="normality_num"> 정상 : <span id="total_num_nomal"></span> </div>
+        <div class="name-label">ㅣ </div>
+        <div class="name-label absence" id="absence_num"> 결석 : <span id="total_num_absence"></span> </div>
+        <div class="name-label">ㅣ </div>
+        <div class="name-label" id=""> 기타 : <span id="total_num_etc"></span> </div>
+
+
+    </div>
+    <table class="table table-striped" id="kongsu_table_head">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th style="display:none;">num</th>
+            <th>이름</th>
+            <th>주민번호</th>
+            <th>직종</th>
+            <th>공수</th>
+        </tr>
+        </thead>
+        <tbody id="kongsu_table_body">
+
+        <!-- 데이터 -->
+
+        </tbody>
+    </table>
+
+</div>
+
+
+
+<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
+<script src="../../js/my_js/_DB_query.js"></script>
+<script src="../../js/my_js/_static.js"></script>
+
+
+<script src="../../js/my_js/UI.js"></script>
+<script src="../../js/my_js/kongsu.js"></script>
+<script src="../../js/my_js/daily_employee_register.js"></script>
+<script src="../../js/my_js/_client_lib.js"></script>
+<script>
+
+    $(function() {
+        result_data_save = [];
+        daily_employee_register.hyunjang_load(1);
+
+        window.onload = function(){
+            var daily = $('#dateSearch').val();
+            var dateVal = daily.split('-');
+            var month = dateVal[0] + "-" + dateVal[1];
+            kongsu.kongsu_load(month, daily);
+        };
+
+        window_resize();
+        var date = lib.dateValue();
+        $('#dateSearch').val(date);
+
+
+    });
+    $(window).resize(function() {
+        window_resize();
+    });
+
+    function window_resize() {
+        var win_width = $(window).width();
+        var win_height = $(window).height();
+        $('#kongsu_table_body').css('height', win_height-134);
+        $('#kongsu_table_head th:last-child').css('width', win_width-140);
+        $('#kongsu_table_body td:last-child').css('width', win_width-140);
+    }
+
+
+
+
+    function load(){
+        var daily = $('#dateSearch').val();
+        var dateVal = daily.split('-');
+        var month = dateVal[0] + "-" + dateVal[1];
+        kongsu.kongsu_load(month, daily);
+    }
+    function present_day(){  // 현재일로 버튼
+        var m = lib.toMonth;  //현재월
+        var d = lib.dateValue;  //현재일
+        $('#dateSearch').val(d);
+
+        kongsu.kongsu_load(m, d);
+    }
+    function day_change(interval){  //달 +1,-1 버튼
+        var d = lib.dateValue_add(interval);
+        $('#dateSearch').val(d);
+        var dVal = d.split('-');
+        var m = dVal[0] + "-" + dVal[1];
+        kongsu.kongsu_load(m, d);
+    }
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+
+
+</html>

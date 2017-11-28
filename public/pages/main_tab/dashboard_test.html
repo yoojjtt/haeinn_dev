@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link href="../../assets/styles.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet"  media="screen">
+</head>
+<body>
+
+
+<div role="tabpanel" class="dashboard_test">
+    <button class="btn date">
+        <div class="input-append date" id="dp3">
+            <input onChange=""  id="toMonth" type="month" value="">
+            <span class="add-on">
+                <span class="glyphicon glyphicon-calendar"></span>
+                <span class="lbl_targetDay" id="lbl_targetDay"></span>
+            </span>
+        </div>
+    </button>
+    <!--<div id="chart_div"></div>-->
+    <!--<div id="container">-->
+
+    <!--</div>-->
+    <!--<div>-->
+        <!--<p>-->
+            <!--test, 2017년도-->
+            <!--<span id="contents"></span>-->
+        <!--</p>-->
+    <!--</div>-->
+
+
+
+    <div class="area area1">
+        <table id="daily" class="table table-striped">
+            <thead>
+            <tr>
+                <th style="display:none;">#</th>
+                <th>성명</th>
+                <th>핸드폰 번호</th>
+                <th>이메일</th>
+                <th>직책</th>
+            </tr>
+            </thead>
+            <tbody id="employees_list">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+<!--Div that will hold the pie chart-->
+
+
+<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="../../assets/scripts.js"></script>
+
+<script src="../../js/my_js/_DB_query.js"></script>
+<script src="../../js/my_js/_static.js"></script>
+
+<script src="../../js/my_js/_client_lib.js"></script>
+<script src="../../js/my_js/dashboard.js"></script>
+<script type="text/javascript">
+    $(function() {
+
+        window_resize();
+
+
+    });
+    $(window).resize(function() {
+        window_resize();
+    });
+    function window_resize() {
+        var win_width = $(window).width();
+        var win_height = $(window).height();
+//        $('#dashboard_table_body').css('height', win_height-169);
+//        $('#dashboard_table_head th:last-child').css('width', win_width-140);
+//        $('#dashboard_table_body td:last-child').css('width', win_width-140);
+    }
+
+</script>
+<script type="text/javascript">
+    $(function() {
+
+
+        //present_month();
+        //window_resize();
+        dashboard.closing_data_load();
+
+
+    });
+
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+
+    google.charts.setOnLoadCallback (drawChart_Y);
+    // Callback that creates and populates a data table,
+    // instantiates the pie chart, passes in the data and
+
+
+    function drawChart_Y  () {
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+            ['1', 3],
+            ['2', 1],
+            ['3', 1],
+            ['4', 1],
+            ['5', 100],
+            ['6', 1],
+            ['7', 1],
+            ['8', 1],
+            ['9', 100],
+            ['10', 100],
+            ['11', 100],
+            ['12', 100]
+        ]);
+
+
+        var options = {
+            'title' : '현장별 지출',
+            'width':600,
+            'height':300
+        };
+
+        // 인스턴스화 및 차트를 그립니다.
+        var chart = new google.visualization.ColumnChart (document.getElementById ('container'));
+        chart.draw (data, options);
+    }
+    google.charts.setOnLoadCallback (drawChart_Y);
+</script>
+</body>
+</html>

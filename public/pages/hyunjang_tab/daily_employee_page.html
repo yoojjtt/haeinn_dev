@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <title>Admin Home Page test</title>
+
+    <!-- 부트스트랩 -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="../../assets/styles.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet"  media="screen">
+
+</head>
+
+<body>
+
+<div role="tabpanel" class="daily_employee_page">
+    <div class="panel panel-default ">  <!--head -->
+        <div class="panel-heading">
+            <div class="pull-left">
+                <select id="setJob" onChange="setValue()" class="input-box-type2 btn btn-default form-control">
+                    <option value="0">직종선택</option>
+                    <option value="관리">관리</option>
+                    <option value="반장">반장</option>
+                    <option value="일반">일반</option>
+                    <option value="비계">비계</option>
+                    <option value="보온">보온</option>
+                    <option value="함석">함석</option>
+                    <option value="조공">조공</option>
+                    <option value="기계">기계</option>
+                    <option value="용접">용접</option>
+                    <option value="여공">여공</option>
+                    <option value="대리">대리</option>
+                    <option value="제관">제관</option>
+                    <option value="조장">조장</option>
+                    <option value="포머">포머</option>
+                    <option value="청소">청소</option>
+
+                </select>
+                <div class="input-box-type2"><input type="text" class="form-control" id="search_input" onkeyup="lib.onKeyup()" placeholder="이름 검색"></div>
+                <div class="number_text"><span class="">총 원 : <span id="total_daily_employee_no"></span></span></div>
+            </div>
+            <div class="pull-right">
+                <button class="btn btn-info" id="daily_enroll" onClick="daily_employee.new_daily_employee()" >신규등록</button>
+                <button class="btn btn-success" onClick="daily_employee.daily_employee_save()" id="btn_save">저장</button>
+                <button class="btn btn-default" id="btn_delete">삭제</button>
+            </div>
+        </div>
+    </div>
+    <div class="area_in_box" id="daily_employee_panel">
+        <div class="area area1">
+            <table id="daily" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>직종</th>
+                    <th>이름</th>
+                    <th>생년월일</th>
+                </tr>
+                </thead>
+                <tbody id="daily_employee_list">
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+
+
+
+
+        <!---------------------------------------- right area ------------------------>
+        <div class="area area2">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*이름</label>
+                <div class="col-sm-9">
+                    <div class="input-box"><input type="text" class="form-control" id="daily_employee_name" placeholder="이름"></div>
+                    <input type="text" id="daily_employee_id" hidden value="0">
+                    <!--Radio
+                    <div class="radio-sex">
+                        <div class="box"><input id="sex1" type="radio" name="sex" checked> 남 </div>
+                        <div class="box"><input id="sex2" type="radio" name="sex" > 여 </div>
+                    </div>-->
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*직종</label>
+                <div class="col-sm-9">
+                    <select id="daily_employee_job" class="btn-default form-control btn_job">
+                        <option value="0">직종선택</option>
+                        <option value="관리">관리</option>
+                        <option value="반장">반장</option>
+                        <option value="일반">일반</option>
+                        <option value="비계">비계</option>
+                        <option value="보온">보온</option>
+                        <option value="함석">함석</option>
+                        <option value="조공">조공</option>
+                        <option value="기계">기계</option>
+                        <option value="용접">용접</option>
+                        <option value="여공">여공</option>
+                        <option value="대리">대리</option>
+                        <option value="제관">제관</option>
+                        <option value="조장">조장</option>
+                        <option value="포머">포머</option>
+                        <option value="청소">청소</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*주민번호</label>
+                <div class="col-sm-9">
+                    <div class="input-box"><input type="text" class="form-control" id="daily_employee_jumin1" placeholder="주민번호앞자리" maxlength="6" onKeyPress="return numkeyCheck(event)"></div>
+                    <div class="input-box"><input type="text" class="form-control" id="daily_employee_jumin2" placeholder="주민번호뒷자리"  maxlength="7" onKeyPress="return numkeyCheck(event)"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*핸드폰</label>
+                <div class="col-sm-9">
+                    <select id="daily_employee_phone1" class="btn btn-default form-control" id="sCell1">
+                        <option>010</option>
+                        <option>011</option>
+                        <option>016</option>
+                        <option>017</option>
+                        <option>018</option>
+                        <option>019</option>
+                    </select>
+                    <div class="input-box-type2"><input id="daily_employee_phone2" type="text" class="form-control" id="iCell2" placeholder="" maxlength="4" onKeyPress="return numkeyCheck(event)" style="IME-MODE: disabled;"></div>
+                    <div class="input-box-type2"><input id="daily_employee_phone3" type="text" class="form-control" id="iCell3" placeholder="" maxlength="4" onKeyPress="return numkeyCheck(event)" style="IME-MODE: disabled;"></div>
+                </div>
+            </div>
+            <!--<div class="form-group">-->
+                <!--<label class="col-sm-3 control-label">*통상단가</label>-->
+                <!--<div class="col-sm-9">-->
+                    <!--<div class="input-box-type4"><input type="text" class="form-control" id="iDanga"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">주소</label>
+                <div class="col-sm-9">
+                    <div class="input_box_post"><input id="daily_employee_postnum" type="text" class="form-control iPost"  placeholder=""></div><!-- readonly -->
+                    <div class="btn_box"><button class="btn btn-default" id="btn_post_search">우편번호검색</button></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label"></label>
+                <div class="col-sm-9">
+                    <div class="input-box-type3"><input type="text" id="daily_employee_address1" class="form-control"  placeholder="주소"></div>
+                    <div class="input-box-type3"><input type="text" id="daily_employee_address2" class="form-control"  placeholder="상세주소"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*급여계좌</label>
+                <div class="col-sm-9">
+                    <select id="daily_employee_bank_name" class="btn btn-default form-control btn_bank" >
+                        <option value="0">은행선택</option>
+                        <option value="신한은행">신한</option>
+                        <option value="기업은행">기업</option>
+                        <option value="우리은행">우리</option>
+                        <option value="농협">농협</option>
+                        <option value="기업">기업</option>
+                        <option value="외환은행">외환</option>
+                        <option value="국민은행">국민</option>
+                    </select>
+                    <div class="input-box"><input id="daily_employee_bank_owner" type="text" class="form-control" placeholder="예금주 예)홍길동" style="IME-MODE: disabled;"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label"></label>
+                <div class="col-sm-9">
+                    <div class="input-box-type5"><input id="daily_employee_bank_account" type="text" class="form-control"  placeholder="계좌번호"></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../../vendors/jquery-1.9.1.min.js"></script>
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+
+<script src="../../assets/scripts.js"></script>
+
+<script src="../../js/my_js/_DB_query.js"></script>
+<script src="../../js/my_js/_static.js"></script>
+
+<script src="../../js/my_js/UI.js"></script>
+<script src="../../js/my_js/_client_lib.js"></script>
+<script src="../../js/my_js/_table_ui.js"></script>
+<script src="../../js/my_js/daily_employee.js"></script>
+
+<script>
+
+    $(function() {
+
+        window_resize();
+
+        daily_employee.daily_employee_load('관리');
+
+
+    });
+    $(window).resize(function() {
+
+        window_resize();
+
+    });
+
+    function window_resize() {
+        var win_width = $(window).width();
+        var win_height = $(window).height();
+
+        //높이--38:tabNav
+        $('#daily_employee_panel').css('height', win_height-47);
+        $('#daily_employee_panel').css('width', win_width);
+        $('#daily_employee_list').css('height', win_height-105);
+    }
+    function setValue(){
+        var job =  $('#setJob').val();
+
+        daily_employee.daily_employee_load(job);
+    }
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+
+
+</html>

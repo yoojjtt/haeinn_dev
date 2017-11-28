@@ -1,0 +1,333 @@
+#account_input_box, #input_group2, #input_group3
+{
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.panel-default {
+
+}
+
+.payment_page {
+  min-width:1090px !important;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  padding: 10px 10px 0 10px;
+
+  .calendar_area {
+    float: left;
+    width: 210px;
+    height: 100%;
+  }
+
+  .input_list_area {
+    float: left;
+    width: 850px;
+    min-width:850px;
+    height: 100%;
+
+    .selected {
+      color: white;
+      background: @btn_color-base;
+    }
+
+    .oSelected {
+      color: white;
+      background: @negative_color;
+    }
+
+    .list-group {
+      padding: 5px;
+    }
+
+    #input_group2 {
+      width:0;
+      visibility: hidden;
+    }
+
+    .write_big_box {
+      font-size: 12px;
+      height: 60px;
+
+      #gubun_list tbody {
+        overflow-y: hidden;
+        td {
+          width: 153px;
+        }
+      }
+
+      .write_box {
+        display: none;
+        margin-top: 10px;
+        height: 150px;
+        border-top: 1px solid #dddddd;
+
+        .table {
+          border: 1px solid #dddddd;
+          min-width: inherit;
+
+          .list_row:hover {
+            background: @tableOverColor;
+            cursor: pointer;
+          }
+
+          tbody td {
+            text-align: left;
+            width: 133px;
+            font-size: 12px;
+          }
+        }
+
+        .input_box {
+          float: left;
+          padding-bottom: 5px;
+          margin:5px 5px 0 5px;
+
+          .guide_txt{
+            height: 20px;
+            font-weight:700;
+            text-align: left;
+            margin: 8px 0 3px 3px;
+          }
+        }
+
+        .input_group {
+          color: @positive_color;
+        }
+
+        .input_gubun,
+        .input_group {
+          text-align: left;
+          width: 150px;
+
+          tbody{
+            height: 130px;
+          }
+
+        }
+
+        .selected_incom {
+          color: @positive_color;
+        }
+
+        .selected_outcom {
+          color: @negative_color;
+        }
+
+        .input_group3 {
+          width:0;
+          display: none;
+
+          .class_div {
+            padding-bottom: 3px;
+          }
+
+          .btn-xs {
+            height:25px;
+            width:150px;
+          }
+
+          tbody{
+            height: 102px;
+          }
+
+        }
+
+        .input_group4 {
+          width:0;
+          display: none;
+          width: 300px !important;
+        }
+
+        .guide_txt3 {
+          position: relative;
+          padding: 7px;
+          font-weight:700;
+        }
+
+        .input_contents_label {
+          padding: 7px 0 0 0;
+
+          .right_txt{
+            font-weight: bold;
+            text-align: right;
+            height:28px;
+          }
+
+        }
+
+        .input_contents {
+          width: 150px;
+
+          .form-control{
+            width: 150px;
+            font-size: 14px;
+            padding: 3px 6px;
+            height: 28px;
+            text-align: right;
+          }
+
+          .memo_textarea {
+            height: 44px;
+            text-align: left;
+          }
+
+          .form_line{
+            height: 30px;
+          }
+
+          .check_box {
+            padding-top: 2px;
+            ._box {
+              float: left;
+              padding-right: 10px;
+            }
+          }
+
+          textarea{
+            height: 50px;
+          }
+
+          #iMoney, #iTargetDay {
+            text-align: center;
+            IME-MODE:disabled;
+          }
+        }
+
+        .input_contents_button {
+          padding-top: 3px;
+
+          .btn {
+            width:80px;
+          }
+
+          ._box {
+            padding:2px 0 1px 0;
+          }
+        }
+
+      }
+
+    }
+
+    .payment_top_space {
+      padding: 6px 1px;
+    }
+
+    .payment_list {
+      height:220px;
+      padding: 10px 0 0 0;
+
+      .table {
+
+        .zero_data {
+          position: relative;
+          top: 70px;
+          text-align: center;
+        }
+
+        .select {
+          background: @tableOverColor;
+          color: white
+        }
+
+        td {
+          font-size:11px;
+        }
+
+        th:nth-of-type(1), td:nth-of-type(1) { width: 100px; }
+        th:nth-of-type(2), td:nth-of-type(2) { width: 150px; }
+        th:nth-of-type(3), td:nth-of-type(3) { width: 150px; }
+        th:nth-of-type(4), td:nth-of-type(4) { width: 150px; }
+        th:nth-of-type(2), td:nth-of-type(2) { text-align: left; }
+        th:nth-of-type(3), td:nth-of-type(3) { text-align: right; }
+        th:nth-of-type(4), td:nth-of-type(4) { text-align: right; }
+        th:nth-of-type(5), td:nth-of-type(5) { text-align: left; }
+
+        .list_row:hover {
+          background: #EEE;
+          cursor: pointer;
+        }
+      }
+
+    }
+
+    //총계
+    .income {
+      color: @positive_color;
+    }
+    .outcom {
+      color: @negative_color;
+    }
+    .date_guide_txt{
+      color: @important_color;
+    }
+
+    .list_total {
+      padding-left: 200px;
+      height:45px;
+
+      .sum {
+        float: left;
+      }
+      .income {
+        float: left;
+        width:185px;
+        text-align: right;
+      }
+      .outcom {
+        float: left;
+        width:150px;
+        text-align: right;
+      }
+    }
+
+    .today_total {
+      padding-left: 176px;
+      height:45px;
+
+      ._label {
+        float: left;
+        width:70px;
+      }
+      ._data {
+        float: left;
+        width:300px;
+        color: @negative_color;
+      }
+    }
+
+    .month_total {
+      padding-left: 176px;
+      height:60px;
+
+      .total_sum {
+        height: 20px;
+        ._label {
+          float: left;
+          width:70px;
+        }
+        ._data {
+          float: left;
+          width:300px;
+        }
+      }
+
+      .total_result {
+        ._label {
+          float: left;
+          width:70px;
+        }
+        ._data {
+          float: left;
+          width:550px;
+        }
+      }
+    }
+
+  }
+}

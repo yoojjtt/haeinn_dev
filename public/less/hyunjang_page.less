@@ -1,0 +1,172 @@
+
+.hyunjang_page {
+  .panel {
+    margin-bottom: 0;
+    border: inherit;
+
+  }
+  .panel-heading {
+    height: 47px;
+    padding: 6px 10px 6px 10px;
+    .pull-left {
+      float: left;
+      select {
+        margin-top: 0;
+        width: 200px;
+      }
+      span {
+        margin-left: 6px;
+      }
+    }
+    .pull-right {
+      position: absolute;
+      right: 10px;
+    }
+  }
+  .form-group {
+    height: 33px;
+
+    .col-sm-3 {
+      padding-top: 7px;
+      text-align: right;
+    }
+  }
+
+  .area_in_box {
+    background: white;
+    min-width: 990px;
+    display: block;
+    .area {
+      padding: 10px;
+      float: left;
+      font-size: 12px;
+    }
+    .area1 {
+      width: 270px;
+      margin-right: 250px;
+      table {
+        width: 450px!important;
+        border: 1px solid #dddddd;
+        background: #ffffff;
+
+        thead {
+          display: block;
+          text-align: center;
+          background-color:white;
+
+        }
+        tbody {
+          display: block;
+          height: 550px;
+          min-height: 200px;
+          overflow: auto;
+          background-image:url(../images/bg_pattern2.gif);
+
+        }
+        th {
+          text-align: center!important;
+          &:nth-of-type(1) {width: 150px; text-align:left;}
+          &:nth-of-type(2) {width: 150px;}
+          &:nth-of-type(3) {width: 200px;}
+        }
+        td {
+          //text-align: center!important;
+          &:nth-of-type(1) {  width: 150px; text-align:left; }
+          &:nth-of-type(2) {  width: 150px; text-align:center; }
+          &:nth-of-type(3) {  width: 200px; text-align:center; }
+        }
+        tr {
+          &:nth-child(even) {
+            background-color: @background_color_1;
+          }
+        }
+      }
+    }
+    .area2 {
+      width: 500px;
+      min-width: 500px;
+
+      .form-group {
+        margin-bottom: 5px;
+
+        .input-box-type2 {
+          float: left;
+          width: 60px;
+          margin-right: 5px;
+        }
+        .btn_job {
+          width: 100px;
+        }
+        .input-box {
+          float: left;
+          width: 220px;
+          margin-right: 5px;
+        }
+        .input-box-textarea{
+          margin-right: 5px;
+          padding-top:5px;
+
+        }
+        .input_box_post {
+          float: left;
+          width: 80px;
+          margin-right: 5px;
+        }
+        .iPost {
+          width: 80px;
+          text-align: center;
+        }
+        .btn-box {
+          float: left;
+        }
+
+        .radio-sex {
+          float: left;
+          width: 420px;
+          padding: 5px 0 0 10px;
+
+          .box {
+            float: left;
+            width: 100px;
+          }
+          .ing{
+            color:blue;
+          }
+          .end{
+            color:red;
+          }
+        }
+        .input-box {
+          float: left;
+          width: 150px;
+          margin-right: 5px;
+          .btn_change {
+            width: 100px;  // 변경버튼
+          }
+        }
+        .input-box-name{
+          float: left;
+          width: 320px;
+          margin-right: 5px;
+        }
+        .input-box-name2{
+          float: left;
+          width: 210px;
+          margin-right: 5px;
+
+        }
+
+        .btn_bank {
+          width: 120px;
+        }
+        select {
+          float: left;
+          width: 60px;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+
+}
+

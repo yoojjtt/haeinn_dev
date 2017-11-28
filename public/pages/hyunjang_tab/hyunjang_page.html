@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <title>Admin Home Page test</title>
+
+    <!-- 부트스트랩 -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="../../assets/styles.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet"  media="screen">
+
+</head>
+
+<body>
+
+<div role="tabpanel" class="hyunjang_page">
+    <div class="panel panel-default ">  <!--head -->
+        <div class="panel-heading">
+            <div class="pull-left">
+                <select id="setProc" onChange="setValue()" class="btn btn-default form-control">
+                    <option value="1">공사 중 </option>
+                    <option value="2" >공사 종료</option>
+
+
+
+                </select>
+                <span>총 공사 수: <span id="total_no"></span></span>
+            </div>
+            <div class="pull-right">
+                <button class="btn btn-info" onClick="hyunjang.new_hyunjang()" class="btn btn-success">신규등록</button>
+                <button class="btn btn-success" onClick="hyunjang.hyunjang_save()">저장</button>
+                <button class="btn btn-default" >삭제</button>
+            </div>
+        </div>
+    </div>
+    <div class="area_in_box" id="hyunjang_panel">
+        <div class="area area1">
+            <table id="daily" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>현장명</th>
+                    <th>담당자</th>
+                    <th>공사기간 </th>
+                </tr>
+                </thead>
+                <tbody id="hyunjang_list">
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+        <!--------------------------------right area ----------------------------->
+        <div class="area area2">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*공사 상태</label>
+                <div class="col-sm-9">
+
+                    <div class="radio-sex">
+                        <div class="box ing"><input id="proc1" value="1" type="radio" name="sex"  checked> 공사 중 </div>
+                        <div class="box end"><input id="proc2" value="2" type="radio" name="sex" > 공사 종료 </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*현장 종류</label>
+                <div class="col-sm-9">
+                    <select id="hyunjang_sort" class="btn-default form-control btn_job">
+                        <option value="0">선택</option>
+                        <option value="건설">건설</option>
+                        <option value="일반">일반</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*현장명</label>
+                <div class="col-sm-9">
+                    <div class="input-box-name"><input type="text" class="form-control" id="hyun_jang_name" placeholder="현장명">
+                    <input type="text" id="hyunjang_id" hidden value="0">
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*발주회사</label>
+                <div class="col-sm-9">
+                    <div class="input-box-name2"><input type="text" class="form-control" id="balju_company" placeholder="발주회사"></div>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*책임자</label>
+                <div class="col-sm-9">
+                    <div class="input-box"><input id="bogoja" type="text" class=" form-control"></div>
+                    <div id="change_btn" class="input-box"><button class='btn btn-default' onClick="hyunjang.change()">변경</button></div>
+                    <div id="change_select" style="display:none" class="input-box">
+                        <select  onchange="hyunjang.select()" id="bogoja_change" class="btn-default form-control btn_change">
+                            <option value="">변경</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*계약번호</label>
+                <div class="col-sm-9">
+                    <div class="input-box"><input type="text" class="form-control" id="hyun_jang_number" placeholder="계약번호"></div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*관리번호</label>
+                <div class="col-sm-9">
+                    <div class="input-box"><input type="text" class="form-control" id="manageNumber" placeholder="산재관리번호"></div>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*공사 시작일</label>
+                <div class="col-sm-9">
+                    <div class="input-box"><input type="date" class="form-control" id="hyunjang_start"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*공사 종료일</label>
+                <div class="col-sm-9">
+                    <div class="input-box"><input type="date" class="form-control" id="hyunjang_end"></div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*공사내용</label>
+                <div class="col-sm-9">
+                    <div class="input-box-textarea"><textarea type="text" class="form-control" id="hyun_jang_content"></textarea></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">*특이사항</label>
+                <div class="col-sm-9">
+                    <div class="input-box-textarea"><textarea rows="6" type="text" class="form-control" id="remark"></textarea></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../../vendors/jquery-1.9.1.min.js"></script>
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+
+<script src="../../assets/scripts.js"></script>
+
+<script src="../../js/my_js/_DB_query.js"></script>
+<script src="../../js/my_js/_static.js"></script>
+
+<script src="../../js/my_js/UI.js"></script>
+<script src="../../js/my_js/_table_ui.js"></script>
+<script src="../../js/my_js/hyunjang.js"></script>
+
+<script>
+
+    $(function() {
+
+        window_resize();
+
+        hyunjang.hyunjang_load(1);
+
+
+    });
+    $(window).resize(function() {
+
+        window_resize();
+
+    });
+
+    function window_resize() {
+        var win_width = $(window).width();
+        var win_height = $(window).height();
+
+        //높이--38:tabNav
+        $('#hyunjang_panel').css('height', win_height-47);
+        $('#hyunjang_panel').css('width', win_width);
+        $('#hyunjang_list').css('height', win_height-105);
+    }
+    function setValue(){
+       var proc =  $('#setProc').val();
+        hyunjang.hyunjang_load(proc);
+    }
+    /*
+    function modal(hyunjang_modal){
+        //parent.parent.modalOpen(hyunjang_modal, '현장 등록', 'auto', '800','','');
+    }
+    */
+
+
+
+</script>
+
+
+</body>
+
+
+</html>

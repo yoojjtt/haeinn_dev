@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <title>Admin Home Page test</title>
+    <!-- 부트스트랩 -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <link href="../../assets/styles.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<div class="panel panel-default closing">
+
+    <div class="panel-heading head1">
+        <div class="btn_box_left">
+            <div class="btn_check_all">
+                <div class="select-box">
+                    <select onChange="load()" id="hyunjang_select" class="btn-default form-control btn_class" >
+
+                    </select>
+                </div>
+
+            </div>
+            <div class="btn_etc">
+                <!-- <button class="btn btn-default" id="btn_month_view">조회</button> -->
+
+                <button type="button" class="btn btn-default" onClick="present_month()" id="btn_toMonth">현재월로</button>
+                <div class="btn btn-default glyphicon glyphicon-chevron-right" onClick="month_change(1)" id="btn_right"></div>
+                <button class="btn date">
+                    <div class="input-append date" id="dp3">
+                        <input onChange="load()"  id="toMonth" type="month" value="">
+                        <span class="add-on">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        <span class="lbl_targetDay" id="lbl_targetDay"></span>
+                    </span>
+                    </div>
+                </button>
+                <div class="btn btn-default glyphicon glyphicon-chevron-left" onClick="month_change(-1)" id="btn_left"></div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <div class="panel-heading head2">
+        <div class="name-label" id="total_label">총 원 : <span id="total_num"></span></div>
+        <div class="name-label">ㅣ </div>
+        <div class="name-label absence" id="absence_num"> 결산 금액  : <span id="total_money"></span> </div>
+        <div class="name-label">ㅣ </div>
+        <div class="name-label normality" id="normality_num"> 평균 월 금액 : <span id="average_monthly_salary"></span> </div>
+        <div class="name-label">ㅣ </div>
+        <div class="name-label" id=""> 평균 단가 : <span id="average_danga"></span> </div>
+
+
+    </div>
+    <table class="table table-striped" id="kongsu_table_head">
+        <thead>
+        <tr>
+
+            <th style="display:none;">num</th>
+            <th>#</th>
+            <th>이름</th>
+            <th>직종</th>
+            <th>주민번호</th>
+            <th id="monthly_closing">
+            </th>
+            <th>공수 <br>합계</th>
+            <th>단가</th>
+            <th>총 금액</th>
+            <!--<th style="visibility:hidden; border-bottom:1px solid #ddd;"></th>-->
+
+        </tr>
+        </thead>
+        <tbody id="kongsu_table_body">
+
+        <!-- 데이터 -->
+
+        </tbody>
+    </table>
+
+</div>
+
+
+
+<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<script src="../../js/my_js/_DB_query.js"></script>
+<script src="../../js/my_js/_static.js"></script>
+<script src="../../js/my_js/UI.js"></script>
+<script src="../../js/my_js/daily_employee_register.js"></script>
+<script src="../../js/my_js/_client_lib.js"></script>
+<script src="../../js/my_js/closing.js"></script>
+<script>
+
+    $(function() {
+
+        window_resize();
+        daily_employee_register.hyunjang_load(1);  //select box 현장 불러오기
+        present_month();
+        //closing.monthly_closing_load();
+
+
+    });
+    $(window).resize(function() {
+        window_resize();
+    });
+
+    function window_resize() {
+
+        var win_width = $(window).width();
+        var win_height = $(window).height();
+        $('#kongsu_table_body').css('height', win_height-174);
+        $('#kongsu_table_head th:last-child').css('width', win_width-140);
+        $('#kongsu_table_body td:last-child').css('width', win_width-140);
+    }
+
+
+
+
+    function load(){
+        window_resize();
+        var m = $('#toMonth').val();
+        //alert(m);
+        lib.Calendar(m); // th 의 월별 일자 변경
+        closing.monthly_closing_load();  //월 바꿀 때마다 closing 페이지에 reload
+    }
+    function present_month(){  // 현재월로 버튼
+        window_resize();
+        var m = lib.toMonth();
+        $('#toMonth').val(m);
+        lib.Calendar(m);
+        closing.monthly_closing_load();  //월 바꿀 때마다 closing 페이지에 reload
+    }
+    function month_change(interval){  //달 +1,-1 버튼
+        window_resize();
+        var m = lib.dateValue_add_month(interval);
+        $('#toMonth').val(m);
+        //alert(m);
+        lib.Calendar(m);
+        closing.monthly_closing_load();  //월 바꿀 때마다 closing 페이지에 reload
+    }
+
+
+
+
+</script>
+
+</body>
+
+
+</html>

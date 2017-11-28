@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Login</title>
+    <!-- Bootstrap -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <link href="../assets/styles.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+</head>
+<body class="img_background" id="login">
+<div class="container">
+
+    <div  class="form-signin">
+        <h2 class="form-signin-heading">로그인</h2>
+
+        <input id="user_email"  type="text" class="input-block-level" placeholder="사용자 이메일 또는 아이디">
+        <input id="user_pwd"  type="password" class="input-block-level" placeholder="비밀번호">
+
+
+        <div>
+            <button onClick="submit();" class="btn  btn-block btn-primary" type="button">로그인</button>
+            <button type="button" onClick="register();" class="btn  btn-block btn-success">서비스 신청</button>
+        </div>
+
+    </div>
+
+</div> <!-- /container -->
+<script src="../vendors/jquery-1.9.1.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="../js/my_js/_static.js"></script>
+<script src="../js/my_js/_DB_query.js"></script>
+<script src="../js/my_js/_auth.js"></script>
+<script>
+    function submit(){
+        auth.login_process();
+    }
+
+    function register(){
+        location.href="/pages/register.html";
+    }
+</script>
+</body>
+</html>

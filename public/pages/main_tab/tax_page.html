@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <title>Admin Home Page test</title>
+    <!-- Bootstrap -->
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+
+    <link href="../../assets/styles.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="../../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+</head>
+
+<body>
+<div role="tabpanel" class="tab-pane fade in active" id="com_dashboard_page">
+    <div class="row-fluid">
+        <div class="block">
+            <div class="navbar navbar-inner block-header">  <!--head -->
+                <div class="muted pull-left">세금 상세정보</div>
+                <div class="pull-right">
+                    <button  id="tax_return" onClick="tax_sujung('return')" class="enroll-btn btn btn-success">테이블</button>
+                    <button  id="tax_new" onClick="tax_sujung('new')" class="enroll-btn btn btn-success">수정</button>
+                    <button  id="tax_update" onClick="tax_sujung('update')" type="submit" class="save-btn btn btn-primary">저장</button>
+
+                </div>
+            </div>
+            <div class="block-content collapse in">
+                <!-- span12 -->
+                <div class="span12"  >
+                    <div class="form-signin">
+                        <!--  <legend><div  class="muted pull-right"></div></legend>    -->
+                        <table class="table table-bordered ">
+                            <thead>
+                            <tr>
+                                <th style="text-align:center" width="10%">구분</th>
+                                <th style="text-align:center">근로자</th>
+                                <th style="text-align:center">사업주</th>
+                                <th style="text-align:center">설명</th>
+
+                            </tr>
+                            </thead>
+                            <tbody id="tax_table"></tbody>
+
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script src="../../vendors/jquery-1.9.1.min.js"></script>
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<script src="../../vendors/easypiechart/jquery.easy-pie-chart.js"></script>
+<script src="../../assets/scripts.js"></script>
+
+
+<script src="../../js/my_js/_DB_query.js"></script>
+<script src="../../js/my_js/_static.js"></script>
+
+
+<script src ="../../js/my_js/tax.js"></script>
+
+<script src="../../js/my_js/UI.js"></script>
+
+
+    <script>
+
+    $(function() {
+
+        tax.tax_load();
+
+
+
+    });
+
+    function tax_sujung(type){
+        if(type =='new'){tax.tax_new()}
+        if(type =='update'){tax.tax_update()}
+        if(type =='return'){tax.tax_load()}
+
+    }
+
+    function info_load(table, third, forth){
+
+
+        if(table == 'employees_list'){
+            employee.employee_load(company_no, third, forth);
+        }
+        if(table == 'tax_list'){
+            alert('tax_table클릭');
+        }
+
+    }
+
+
+
+</script>
+
+
+
+<script src="../../vendors/datatables/js/jquery.dataTables.min.js"></script>  <!-- data를 부르고 난뒤에 dt 만들것 -->
+<script src="../../assets/DT_bootstrap.js"></script>
+</body>
+
+
+</html>

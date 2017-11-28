@@ -1,0 +1,110 @@
+<div class="hyunjang">
+    <ul class="nav nav-tabs" role="tablist" id="myTab">
+        <li role="presentation" class="active"><a href="#hyunjang_tab1" aria-controls="hyunjang_tab1" role="tab" data-toggle="tab">현장등록</a></li>
+        <li role="presentation"><a href="#hyunjang_tab2" aria-controls="hyunjang_tab2" role="tab" data-toggle="tab">일용직 등록</a></li>
+        <li role="presentation"><a href="#hyunjang_tab3" aria-controls="hyunjang_tab3" role="tab" data-toggle="tab">단가 입력</a></li>
+        <li role="presentation"><a href="#hyunjang_tab4" aria-controls="hyunjang_tab4" role="tab" data-toggle="tab">공수 입력</a></li>
+        <li role="presentation"><a href="#hyunjang_tab5" aria-controls="hyunjang_tab5" role="tab" data-toggle="tab">결산</a></li>
+
+    </ul>
+    <!-- tab_contnents -->
+    <div  class="tab-contents">
+        <div role="tabpanel" class="tab-pane active" id="hyunjang_tab1">
+            <iframe name="iframe_tab_contents"
+                    frameborder=0"
+                    src="hyunjang_tab/hyunjang_page.html"
+                    scrolling="no"
+                    width="100%" height="100%"
+                    class="">
+            </iframe>
+        </div>
+        <div role="tabpanel" class="tab-pane active" id="hyunjang_tab2">
+            <iframe name="iframe_tab_contents"
+                    frameborder=0"
+                    src="hyunjang_tab/daily_employee_page.html"
+                    scrolling="no"
+                    width="100%" height="100%"
+                    class="">
+            </iframe>
+        </div>
+        <div role="tabpanel" class="tab-pane active" id="hyunjang_tab3">
+            <iframe name="iframe_tab_contents"
+                    frameborder=0"
+                    src="hyunjang_tab/register_page.html"
+                    scrolling="no"
+                    width="100%" height="100%"
+                    class="">
+            </iframe>
+        </div>
+        <div role="tabpanel" class="tab-pane active" id="hyunjang_tab4">
+            <iframe name="iframe_tab_contents"
+                    frameborder=0"
+                    src="hyunjang_tab/kongsu_page.html"
+                    scrolling="no"
+                    width="100%" height="100%"
+                    class="">
+            </iframe>
+        </div>
+        <div role="tabpanel" class="tab-pane active" id="hyunjang_tab5">
+            <iframe name="iframe_tab_contents"
+                    frameborder=0"
+                    src="hyunjang_tab/closing_page.html"
+                    scrolling="no"
+                    width="100%" height="100%"
+                    class="">
+            </iframe>
+        </div>
+    </div>
+</div>
+
+
+<!------old_modal---->
+<div id="fixed_top" class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+
+            <div class="nav-collapse collapse" data-role="navbar">
+                <ul class="nav pull-right">
+                    <li class="dropdown">
+                        <a href="/" role="button" class="dropdown-toggle" data-toggle="dropdown"> <span id= "user_name"></span> <i class="icon-user"></i>
+                            <strong id="com_info" hidden style="color:black;"></strong>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a tabindex="-1" onClick="modalOpen('private_info');" href="#">개인정보 설정</a>
+                            </li>
+                            <li>
+                                <a tabindex="-1" onClick="modalOpen('company_info', '회사정보설', 800, 500);" href="#">회사정보 설정</a>
+                            </li>
+                            <li>
+                                <a tabindex="-1" onClick="modalOpen('password_info');" href="#">비밀번호 변경</a>
+                            </li>
+
+                            <li class="divider"></li>
+
+                            <li>
+                                <a class="test_first" onClick="logout()" tabindex="-1" href="#">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul id="top_navbar" class="nav" >
+                    <li id="company_management" class="">
+                        <a onClick="_callFrame('main');" href="#">회사관리</a>
+                    </li>
+                    <li id="hyunjang_management" class="dropdown">
+                        <a onClick="_callFrame('hyunjang');" href="#">현장관리</a>
+                    </li>
+                    <li id="finance_management" class="dropdown">
+                        <a onClick="_callFrame('finance');" href="#">재무관리</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+</div>

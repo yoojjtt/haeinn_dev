@@ -1,0 +1,199 @@
+.kongsu {
+  min-width: 900px;
+
+  .head1 {
+    height: 47px;
+    padding: 6px;
+
+    .btn_box_left {
+      float: left;
+
+      .btn_check_all {
+        float: left;
+        padding-right: 4px;
+
+        .btn-box {
+          float: left;
+          padding-right: 2px;
+        }
+
+        .select-box {
+           float: left;
+           padding-right: 3px;
+           width: 300px;
+         }
+        .select-box2 {
+          float: left;
+          width:165px;
+          padding-right: 3px;
+
+        }
+
+
+
+        #sJob {
+          width:100px;
+        }
+
+        #sKongsu_type {
+          width:125px;
+        }
+
+        .btn_kongsu {
+          float: left;
+          width:150px;
+        }
+      }
+
+      .btn_etc {
+        float: left;
+      }
+
+    }
+    .btn_box_right {
+      float: right;
+
+      .date {
+        float: right;
+        z-index: 10;  // 최상위
+        color: red;
+        background: white;
+        margin-right: 5px;
+        height:34px;
+        .input-append{
+          height:25px;
+        }
+        input{
+          border:0px;
+          height:24px;
+
+        }
+
+        span {
+          color: #33acfe;
+        }
+
+        .lbl_targetDay {
+          color: red;
+        }
+
+
+        span {
+          color: #33acfe;
+        }
+
+        .lbl_targetDay {
+          color: red;
+        }
+      }
+
+      .btn-default {
+        float: right;
+        margin-right: 5px;
+      }
+      .btn_refresh {
+        float: right;
+
+      }
+
+    }
+  }
+
+  .head2 {
+    height: 47px;
+    padding: 6px;
+
+    .name-label {
+      float: left;
+      padding: 5px;
+    }
+
+    .normality {
+      color: #48eb00;
+    }
+    .absence {
+      color: red;
+    }
+    .day_off {
+      color: #75e3fe;
+    }
+    .yet {
+      color: darkgrey;
+    }
+
+
+  }
+
+  .table {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    display: block;
+    border-collapse: collapse;
+
+    .zero_data {
+      position: relative;
+      top: 70px;
+      text-align: center;
+    }
+
+    th {
+      text-align: center;
+    }
+    tr {
+      text-align: center;
+    }
+    td {
+      font-size: 12px;
+      padding-top: 25px;
+    }
+    tbody {
+      display: block;
+      overflow-y: scroll;
+      overflow-x: hidden;
+
+      .attendance_label_1 {
+        color: #48eb00;
+      }
+      .attendance_label_2 {
+        color: red;
+      }
+
+    }
+
+    .td_checkbox {
+      padding: 25px 0 25px 0;
+    }
+    .list_row:hover {
+      background: #dddddd;
+      cursor: pointer;
+    }
+
+    th {
+      //text-align: center!important;
+      &:nth-of-type(1) {width: 40px;}
+      &:nth-of-type(2) {width: 90px;}
+      &:nth-of-type(3) {width: 140px;}
+      &:nth-of-type(4) {width: 230px; }
+      &:nth-of-type(5) {width: 80px; }
+    }
+    td {
+      //text-align: center!important;
+      &:nth-of-type(1) {width: 40px;}
+      &:nth-of-type(2) {width: 100px;}
+      &:nth-of-type(3) {width: 100px;}
+      &:nth-of-type(4) {width: 200px; }
+      &:nth-of-type(5) {width: 80px; }
+    }
+
+
+
+    th:last-child {
+      width: calc(500px);text-align: left;
+    }
+    td:last-child {
+      width: calc(1100px);text-align: left;
+    }
+  }
+
+}

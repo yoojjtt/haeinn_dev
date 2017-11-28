@@ -1,0 +1,101 @@
+
+.settlement_page_box {
+  height: 100%;
+  min-width: 1050px;
+  background-color: white;
+
+  .settlement_big_box {
+    width:100%;
+    height:100%;
+
+    .btn{
+      width: 100%;
+    }
+
+    .settlement_inBox {
+      width:100%;
+      height:100%;
+      min-width: 1213px;
+
+      .Sbox_head{
+        text-align: left;
+        font-size: 13px;
+        height: 100px;
+
+        .date_guide_txt, #endDay {
+          color: @important_color;
+          font-weight: 700;
+        }
+      }
+
+      .Sbox {
+        min-width: 380px;
+        float: left;
+        padding: 10px;
+
+      }
+
+      .table {
+        min-width: inherit;
+      }
+
+      .income_box{
+
+        ._total_sum {
+          height: 40px;
+          color: @positive_color;
+          font-weight:700;
+        }
+        .table{
+
+          tbody{
+            color: @positive_color
+          }
+        }
+      }
+
+      .expenditure_box{
+        ._total_sum {
+          padding: 20px 0 20px 0;
+          color: @negative_color;
+          font-weight:700;
+        }
+
+        .table{
+
+          tbody{
+            color: @negative_color;
+          }
+        }
+      }
+
+      .summary_box {
+        ._total_sum {
+          padding-top: 20px;
+          color: @positive_color;
+          font-weight:700;
+        }
+
+        .table {
+
+          tbody{
+            color: #000;
+          }
+        }
+      }
+
+      .table {
+        th:nth-of-type(1), td:nth-of-type(1) { width: 90px; }
+        th:nth-of-type(2), td:nth-of-type(2) { width: 120px; }
+
+        th:last-child, td:last-child {
+          text-align: left;
+        }
+      }
+
+    }
+
+  }
+
+}
+

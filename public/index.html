@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="assets/styles.css" rel="stylesheet" media="screen">
+    <link href="css/style.css" rel="stylesheet"  media="screen">
+
+
+    <title>main</title>
+
+
+</head>
+<body>
+
+<!-- Modal -->
+<div class="modal fade" id="AdminModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Title</h4>
+            </div>
+            <div class="modal-body">
+
+                <iframe src=""
+                        name="iframe_modal"
+                        id="iframe_modal"
+                        width="100%" height="100%"
+                        frameborder="0"
+                        scrolling="yes">
+                </iframe>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="_modal_close()">닫기</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- top_nav_bar-->
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li id="company_management" class="">
+                    <a onClick="_callFrame('main');" href="#">회사관리</a>
+                </li>
+                <li id="hyunjang_management" class="dropdown">
+                    <a onClick="_callFrame('hyunjang');" href="#">현장관리</a>
+                </li>
+                <li id="finance_management" class="dropdown">
+                    <a onClick="_callFrame('finance');" href="#">재무관리</a>
+                </li>
+                <li id="account_management" class="dropdown">
+                    <a onClick="_callFrame('account_manager');" href="#">회계관리</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+                <li>
+                    <div class="timeBox">
+                        <span class="time" id="time">시간</span>
+                        <span class="time_sec" id="time_sec">초</span>
+                        <span class="am_pm" id="am_pm">ampm</span>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="/" role="button" class="dropdown-toggle" data-toggle="dropdown"> <span id= "user_name"></span> <i class="icon-user"></i>
+                        <strong id="com_info" hidden style="color:black;"></strong>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a tabindex="-1" onClick="modalOpen('private_info', '개인정보설정', 900, 400);" href="#">개인정보 설정</a>
+                        </li>
+                        <li>
+                            <a tabindex="-1" onClick="modalOpen('company_info', '회사정보설정', 900, 400);" href="#">회사정보 설정</a>
+                        </li>
+                        <li>
+                            <a tabindex="-1" onClick="modalOpen('password_info', '비밀번호 변경', 300, 200);" href="#">비밀번호 변경</a>
+                        </li>
+
+                        <li class="divider"></li>
+
+                        <li>
+                            <a class="test_first" onClick="logout()" tabindex="-1" href="#">Logout</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+
+<!-- END top_nav_bar-->
+
+
+
+<!-- contnents -->
+ <div id="main_contents" class="main_contents" >
+    <iframe name="iframe_contents"
+            id="iframe_contents"
+            frameborder=0"
+            scrolling="no"
+            width="100%" height="100%"
+            class="myFrame">
+    </iframe>
+ </div>
+<!-- contents -->
+
+<!-- print 할 때 로드 -->
+<div class="loader" style="display:none;"> </div>
+<div class="container" style="display:none;"> <h1>로딩 후 화면</h1> <div>
+
+
+
+<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="assets/scripts.js"></script>
+
+<script src="js/my_js/_DB_query.js"></script>
+<script src="js/my_js/_static.js"></script>
+
+<script src="js/my_js/_auth.js"></script>
+<script src="js/my_js/UI.js"></script>
+<script>
+
+    /* page 초기 ------------*/
+    $(function() {
+
+
+        /** 시간설정과 로그인 상태 확인**/
+        setInterval(initTime,1000);
+
+
+
+        if (email == false) {  //WHEN anonymous try to access, then  getting off and redirect to LOGIN_page;
+            location.href = "/pages/login.html";
+            $("#fixed_top").hide();
+
+
+
+        } else { //WHEN login success,
+
+            $(".navbar navbar-fixed-top").show();
+            $('#user_name').append(type + ": " + email);  //메인화면 우측 상단 사용자 이름
+
+            if(type == '대표'){
+                _callFrame("main"); //main 페이지를 로드하면서 페이지 시작
+                //$('#AdminModal').modal('toggle');
+                //modalOpen('modal/notification', '공지사항', '100%', '100%');  // 공지모달 팝업
+            }
+            if(type == '소장'){
+                _callFrame("hyunjang");
+                $('#company_management').css('display', 'none');
+                $('#finance_management').css('display', 'none');
+            }
+            if(type == '회계'){
+                _callFrame("finance");
+                $('#company_management').css('display', 'none');
+                $('#hyunjang_management').css('display', 'none');
+            }
+            //_hidePage();
+
+
+
+
+
+        }
+
+        window_resize();
+
+    });
+
+    $(window).resize(function() {
+
+        window_resize()
+
+    });
+
+    function window_resize() {
+
+        var win_width = $(window).width();
+        var win_height = $(window).height();
+
+        //높이
+        var basic_height = win_height-75;
+        $('#main_contents').css('height', basic_height);
+    }
+    function logout(){  //WHEN: logout;
+        auth.logout_process();
+    }
+    function _callFrame(loadPage){  // WHEN: iframe load;
+
+        var page = "/pages/"+loadPage+".html";
+            document.getElementById('iframe_contents').src = page;
+            document.getElementById('iframe_contents').onload = function() {
+                var target = document.getElementById('iframe_contents').contentWindow;
+                if(email != 'yoojjtt@gmail.com'){
+                    target.none_visibility()
+                }
+            };
+
+    }
+    function modalOpen(_pageName, _title, _width, _height, _value1, _value2) {// WHEN: modal popup;
+
+        $('#myModalLabel').html(_title);
+        $("#AdminModal").modal();
+
+        $('.modal-dialog').css('width', _width);
+        $('.modal-body').css('height', _height);
+
+        document.getElementById('iframe_modal').src = '/pages/modal/'+_pageName+".html";
+        document.getElementById('iframe_modal').onload = function() {
+            var target = document.getElementById('iframe_modal').contentWindow;
+
+
+            if(_pageName=="modal/notification") {
+
+                $('.modal-footer').css('display', 'none');
+                $('#iframe_modal').css('width', _width);
+                $('#iframe_modal').css('height', _height);
+
+            }
+
+
+        };
+
+    }
+
+    /* print 생성할 때 로드 시작 */
+    /** 로딩표시 삭제예정 2017.11.26**/
+
+    function _showPage(){
+
+        //alert('로드시작');
+        var loader = $("div.loader");
+        //var container = $("div.container");
+        loader.css("display","block");
+        //container.css("display","block");
+        return true
+
+    }
+    function _hidePage(){
+
+        //alert('로드종료');
+        var loader = $("div.loader");
+        //var container = $("div.container");
+        loader.css("display","none");
+        //container.css("display","none");
+    }
+
+
+
+    /** setInterval 을 이용하여 쿠키 세션확인**/
+
+    /** 시간 설정 **/
+    function initTime(){
+
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+        var ampm;
+
+        if (hours > 12){
+            hours -= 12;
+            ampm = "pm ";
+        }else{
+            ampm = "am ";
+        }
+        if (hours < 10){
+            hours = "0" + hours;
+        }
+        if (minutes < 10){
+            minutes = "0" + minutes;
+        }
+        if (seconds < 10){
+            seconds = "0" + seconds;
+        }
+        var time = hours + ":" + minutes;
+        var time_sec = ":" + seconds;
+        var am_pm = ampm;
+        $('#time').html(time);
+        $('#time_sec').html(time_sec);
+        $('#am_pm').html(am_pm);
+    }
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
