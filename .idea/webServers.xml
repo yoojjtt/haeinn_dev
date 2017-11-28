@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="6b6f5030-d71b-4458-904d-0f23725ab8b9" name="220.230.113.201(haeinn_dev)" url="http://220.230.113.201">
+        <fileTransfer host="220.230.113.201" port="21" rootFolder="/home/yoojjtt/haeinn_dev">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
